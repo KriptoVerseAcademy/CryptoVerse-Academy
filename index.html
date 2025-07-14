@@ -647,17 +647,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const closeAlert = () => {
             modal.style.display = 'none';
+            // Remove event listeners to prevent memory leaks and duplicate calls
             closeButton.removeEventListener('click', closeAlert);
             okButton.removeEventListener('click', closeAlert);
+            modal.removeEventListener('click', handleModalClick); // Remove specific handler for modal background
+        };
+
+        const handleModalClick = (event) => {
+            if (event.target === modal) {
+                closeAlert();
+            }
         };
 
         closeButton.addEventListener('click', closeAlert);
         okButton.addEventListener('click', closeAlert);
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeAlert();
-            }
-        });
+        modal.addEventListener('click', handleModalClick); // Add handler for clicking outside modal
     }
 
 
@@ -798,18 +802,27 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSimulationUI();
             // If navigating to simulation and it's not active, ensure chart is ready to be started
             if (!state.simulation.active && !state.simulation.simChartInstance) {
-                // Initialize a blank chart to show something before "Mulai Simulasi" is clicked
+                // Initialize a blank chart with a single candlestick for visual placeholder
                 const ctx = document.getElementById('simPriceChart').getContext('2d');
                 if (state.simulation.simChartInstance) {
                     state.simulation.simChartInstance.destroy();
                 }
+                const initialOHLC = {
+                    x: Date.now(),
+                    o: 40000, // Example initial price
+                    h: 40100,
+                    l: 39900,
+                    c: 40050
+                };
+                state.simulation.priceHistory = [initialOHLC]; // Add one initial data point
+
                 state.simulation.simChartInstance = new Chart(ctx, {
                     type: 'bar', // Use bar type and let plugin draw candlesticks
                     data: {
-                        labels: [],
+                        labels: [new Date(initialOHLC.x).toLocaleTimeString()],
                         datasets: [{
                             label: `Harga ${state.simulation.selectedSimCoin}`,
-                            data: [], // Will store OHLC objects
+                            data: [initialOHLC], // Pass OHLC objects
                         }]
                     },
                     options: {
@@ -818,7 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         scales: {
                             x: { 
                                 type: 'category', 
-                                labels: [], 
+                                labels: [], // Labels will be populated dynamically by updateSimPrice
                                 display: true 
                             },
                             y: { ticks: { font: { size: 10 } } }
@@ -847,6 +860,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         plugins: [candlestickPlugin]
                     }
                 });
+                state.simulation.currentPrice = initialOHLC.c; // Set current price for display
+                updateSimulationUI(); // Update UI with initial price
             }
         }
     }
@@ -1261,7 +1276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctxPrice = document.getElementById('priceChart').getContext('2d');
         chartInstances.price = new Chart(ctxPrice, {
             type: 'bar', // Use bar type and let plugin draw candlesticks
-            data: { labels, datasets },
+            data: { labels: labels, datasets }, // <-- FIX: Ensure labels are passed here
             options: chartConfig.main,
             plugins: [candlestickPlugin] // Use the custom plugin
         });
@@ -1334,7 +1349,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: { 
                     type: 'category', // Changed to category for candlestick plugin to work with index
                     labels: [], // Will be populated dynamically
-                    display: true // Changed from false to true to ensure axis initialization
+                    display: true 
                 },
                 y: { ticks: { font: { size: 10 } } }
             },
@@ -1407,7 +1422,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- GEMINI API INTEGRATION ---
     async function callGeminiAPI(prompt) {
-        const apiKey = "AIzaSyAq0Yfk9DucUsEB1QqMxOsJE9UfJPkafSc"; // IMPORTANT: For a public website, you should secure this API key on a server-side or serverless function.
+        const apiKey = ""; // IMPORTANT: For a public website, you should secure this API key on a server-side or serverless function.
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
         
         let chatHistory = [];
@@ -1662,7 +1677,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.simulation.balance = 10000;
         state.simulation.coinHoldings = {};
         state.simulation.coinHoldings[state.simulation.selectedSimCoin] = 0; // Initialize holding for selected coin
-        state.simulation.priceHistory = [];
+        state.simulation.priceHistory = []; // Clear history for new simulation
         state.simulation.currentPrice = 0;
         state.simulation.initialBuyPrice = 0; // Reset initial buy price
         state.simulation.eventActive = false;
@@ -1694,8 +1709,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 maintainAspectRatio: false,
                 scales: {
                     x: { 
-                        type: 'category', // Changed to category for candlestick plugin to work with index
-                        labels: [], // Will be populated dynamically
+                        type: 'category', 
+                        labels: [], 
                         display: true 
                     },
                     y: { ticks: { font: { size: 10 } } }
@@ -1758,6 +1773,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('sim-event-message').classList.add('hidden');
 
         updateSimulationUI();
+        // Re-render the initial blank chart with one candlestick when resetting
+        render(); 
     }
 
     function stopSimulation() {
@@ -1776,6 +1793,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSimPrice() {
         let lastPrice = state.simulation.priceHistory.length > 0 ? state.simulation.priceHistory[state.simulation.priceHistory.length - 1].c : (Math.random() * 50000 + 10000);
         
+        // Ensure initial price is not zero if history is empty
+        if (lastPrice === 0 && state.simulation.priceHistory.length === 0) {
+            lastPrice = Math.random() * 50000 + 10000;
+        }
+
         let open = lastPrice;
         let close = open + (Math.random() - 0.5) * (open * 0.01); // Small random fluctuation
         
