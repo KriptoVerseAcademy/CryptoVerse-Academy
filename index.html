@@ -176,6 +176,86 @@
             70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
             100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
         }
+
+        /* Timeline styles for Roadmap */
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            padding: 20px 0;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #a78bfa; /* Indigo 400 */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #a78bfa;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.right::after {
+            left: -16px;
+        }
+        .timeline-item-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .timeline-item.left .timeline-item-content {
+            margin-right: 15px;
+        }
+        .timeline-item.right .timeline-item-content {
+            margin-left: 15px;
+        }
+        @media screen and (max-width: 600px) {
+            .timeline::before {
+                left: 30px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 20px;
+            }
+            .timeline-item.right {
+                left: 0%;
+            }
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 20px;
+            }
+            .timeline-item.left .timeline-item-content,
+            .timeline-item.right .timeline-item-content {
+                margin: 0;
+            }
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -194,6 +274,9 @@
                 <a href="#dasar" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
                     <span class="mr-3">🧱</span> Dasar Kripto
                 </a>
+                <a href="#pilihan-koin" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
+                    <span class="mr-3">💰</span> Pilihan Koin
+                </a>
                 <a href="#arena" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
                     <span class="mr-3">📈</span> Arena Analisis
                 </a>
@@ -205,6 +288,15 @@
                 </a>
                 <a href="#perisai" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
                     <span class="mr-3">🛡️</span> Perisai Trader
+                </a>
+                <a href="#keamanan" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
+                    <span class="mr-3">🔒</span> Keamanan
+                </a>
+                <a href="#hal-islam" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
+                    <span class="mr-3">🕌</span> Hal Islam
+                </a>
+                <a href="#roadmap" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
+                    <span class="mr-3">🗺️</span> Roadmap Belajar
                 </a>
             </nav>
             <div class="p-4 mt-auto">
@@ -280,8 +372,110 @@
                     </div>
                     <div id="jargon-loading" class="mt-4 text-center text-purple-600 hidden">AI sedang mencari penjelasan...</div>
                 </div>
+                <!-- New content for Dasar Kripto -->
+                <div class="mt-8 pt-6 border-t border-gray-200 bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Crypto vs Fiat: Perbedaan Mendasar</h3>
+                    <p class="text-gray-600 mb-4">Pahami mengapa kripto berbeda dari uang tradisional yang Anda gunakan sehari-hari.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><span class="font-semibold">Fiat:</span> Diterbitkan pemerintah, nilai dijamin kepercayaan pemerintah, terpusat (bank sentral). Contoh: Rupiah, Dolar.</li>
+                        <li><span class="font-semibold">Kripto:</span> Diterbitkan melalui kode, nilai ditentukan pasar & teknologi, terdesentralisasi (blockchain). Contoh: Bitcoin, Ethereum.</li>
+                    </ul>
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-200 bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Blockchain: Buku Besar Digital Terdistribusi</h3>
+                    <p class="text-gray-600 mb-4">Bayangkan Google Docs, tapi bukan hanya Anda yang bisa mengedit. Semua orang yang berpartisipasi memiliki salinan dokumen yang sama, dan setiap perubahan diverifikasi oleh jaringan. Ini membuat data sangat aman dan transparan.</p>
+                    <p class="text-gray-600 mb-4">Setiap 'blok' adalah halaman baru dalam dokumen ini yang berisi transaksi. Setelah halaman ditulis, ia 'dirantai' ke halaman sebelumnya dan tidak bisa diubah lagi. Ini adalah inti dari desentralisasi dan keamanan kripto.</p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-200 bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Konsep Penting dalam Kripto</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg text-blue-800">
+                            <h4 class="font-semibold mb-2">⛏️ Mining (Penambangan)</h4>
+                            <p class="text-sm">Proses verifikasi transaksi dan penambahan blok baru ke blockchain, biasanya dengan memecahkan teka-teki komputasi yang kompleks. Ini menciptakan koin baru dan mengamankan jaringan.</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-green-800">
+                            <h4 class="font-semibold mb-2">📦 Blok</h4>
+                            <p class="text-sm">Sebuah 'paket' data yang berisi daftar transaksi yang telah diverifikasi. Setelah penuh, blok ditutup dan ditambahkan ke rantai blok (blockchain).</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg text-purple-800">
+                            <h4 class="font-semibold mb-2">🔑 Wallet Address (Alamat Dompet)</h4>
+                            <p class="text-sm">Alamat unik (seperti nomor rekening bank) yang digunakan untuk mengirim dan menerima kripto. Ini adalah identitas publik Anda di blockchain.</p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg text-yellow-800">
+                            <h4 class="font-semibold mb-2">📜 Smart Contract</h4>
+                            <p class="text-sm">Kode yang berjalan di blockchain yang secara otomatis mengeksekusi perjanjian ketika kondisi tertentu terpenuhi. Seperti 'kontrak otomatis' yang tidak bisa diubah.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
             
+            <!-- Pilihan Koin/Proyek Section (NEW) -->
+            <section id="pilihan-koin" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6">Pilihan Koin/Proyek: Memilih yang Tepat</h2>
+                <p class="text-gray-600 mb-8">Memilih koin yang tepat itu seperti memilih tim olahraga yang akan Anda dukung. Ada banyak faktor yang perlu dipertimbangkan selain hanya harga!</p>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                    <h3 class="text-xl font-bold mb-4">Checklist Evaluasi Koin</h3>
+                    <p class="text-gray-600 mb-4">Gunakan checklist ini untuk membantu Anda menganalisis potensi sebuah proyek kripto.</p>
+                    <form id="coin-checklist-form" class="space-y-4">
+                        <label class="flex items-center">
+                            <input type="checkbox" name="criteria" value="marketCapVolume" class="form-checkbox h-5 w-5 text-indigo-600 rounded">
+                            <span class="ml-2 text-gray-700">✅ Market cap & volume: Apakah proyek ini cukup besar dan likuid?</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="criteria" value="useCase" class="form-checkbox h-5 w-5 text-indigo-600 rounded">
+                            <span class="ml-2 text-gray-700">✅ Use case nyata: Apakah ada masalah dunia nyata yang dipecahkan?</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="criteria" value="teamCommunity" class="form-checkbox h-5 w-5 text-indigo-600 rounded">
+                            <span class="ml-2 text-gray-700">✅ Tim & komunitas: Siapa di balik proyek ini? Seberapa aktif komunitasnya?</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="criteria" value="tokenomicsVesting" class="form-checkbox h-5 w-5 text-indigo-600 rounded">
+                            <span class="ml-2 text-gray-700">✅ Tokenomics & vesting: Bagaimana distribusi koinnya? Apakah ada jadwal rilis yang jelas?</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="criteria" value="roadmapUpdates" class="form-checkbox h-5 w-5 text-indigo-600 rounded">
+                            <span class="ml-2 text-gray-700">✅ Roadmap & update dev: Apakah ada rencana masa depan yang jelas dan kemajuan yang konsisten?</span>
+                        </label>
+                        <button type="submit" class="mt-4 bg-indigo-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-indigo-700 transition-colors">
+                            Evaluasi Pilihan Saya
+                        </button>
+                    </form>
+                    <div id="checklist-feedback" class="mt-4 p-4 bg-indigo-50 rounded-lg text-indigo-800 hidden"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Studi Kasus: Koin A (Proyek Bagus) vs Koin B (Shitcoin)</h3>
+                    <p class="text-gray-600 mb-4">Mari kita bedah dua contoh koin hipotetis untuk melihat perbedaannya.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-green-800">Koin A: "EcoChain" 🌳</h4>
+                            <p class="text-gray-700 text-sm mb-2">EcoChain adalah platform blockchain yang berfokus pada solusi keberlanjutan lingkungan. Mereka bertujuan untuk melacak rantai pasokan karbon dan memfasilitasi perdagangan kredit karbon.</p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                                <li>**Market Cap & Volume:** Top 50, volume harian konsisten.</li>
+                                <li>**Use Case:** Jelas, memecahkan masalah nyata dalam pelacakan karbon dan keberlanjutan.</li>
+                                <li>**Tim & Komunitas:** Tim yang berpengalaman di bidang teknologi dan lingkungan, komunitas aktif dan terlibat.</li>
+                                <li>**Tokenomics & Vesting:** Suplai terbatas, distribusi adil, jadwal vesting transparan untuk tim dan investor awal.</li>
+                                <li>**Roadmap & Update Dev:** Roadmap jelas dengan pencapaian yang konsisten dan update pengembangan rutin.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-red-800">Koin B: "MoonPump" 🌕🚀</h4>
+                            <p class="text-gray-700 text-sm mb-2">MoonPump adalah koin meme baru yang dijanjikan akan "to the moon" tanpa use case yang jelas. Fokus utamanya adalah pemasaran agresif di media sosial.</p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                                <li>**Market Cap & Volume:** Sangat rendah, volume fluktuatif dan didorong oleh hype.</li>
+                                <li>**Use Case:** Tidak ada use case nyata, hanya janji keuntungan cepat.</li>
+                                <li>**Tim & Komunitas:** Tim anonim, komunitas didominasi oleh spekulan dan influencer yang dibayar.</li>
+                                <li>**Tokenomics & Vesting:** Suplai sangat besar, distribusi tidak jelas, seringkali ada alamat dompet besar yang memegang sebagian besar suplai.</li>
+                                <li>**Roadmap & Update Dev:** Roadmap tidak realistis atau tidak ada, tidak ada update pengembangan yang berarti.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Arena Analisis Section -->
             <section id="arena" class="view hidden">
                  <h2 class="text-3xl font-bold mb-2">Arena Analisis</h2>
@@ -417,6 +611,11 @@
                             <p class="text-sm text-gray-600">Koin Anda (<span id="sim-holding-coin-display">BTC</span>):</p>
                             <p id="sim-coin-holding" class="text-xl font-bold text-gray-800">0.00</p>
                         </div>
+                        <!-- Added totalValue element here -->
+                        <div class="bg-gray-100 p-4 rounded-lg text-center col-span-full md:col-span-1">
+                            <p class="text-sm text-gray-600">Total Nilai Portofolio:</p>
+                            <p id="totalValue" class="text-xl font-bold text-gray-800">$10,000.00</p>
+                        </div>
                     </div>
 
                     <div id="sim-pnl-info" class="bg-gray-100 p-4 rounded-lg text-center mb-6 hidden">
@@ -455,6 +654,76 @@
                             <span id="price" class="font-semibold text-lg">Harga: $0.00</span>
                             <span id="change" class="ml-4 font-semibold text-lg">Change: 0%</span>
                             <span id="direction" class="ml-2 text-xl">⬍</span>
+                        </div>
+                    </div>
+
+                    <!-- Analisis Teknikal Interaktif Module -->
+                    <div class="mt-8 pt-6 border-t border-gray-200 bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold mb-4">Analisis Teknikal Interaktif (dengan Candlestick)</h3>
+                        <p class="text-gray-600 mb-4">Uji pemahaman Anda tentang konsep teknikal analisis dasar dengan contoh candlestick.</p>
+
+                        <div class="mb-6 p-4 border border-blue-200 rounded-lg bg-blue-50">
+                            <h4 class="font-semibold text-lg mb-3 text-blue-800">Kuis: Support atau Resistance?</h4>
+                            <p class="text-gray-700 mb-4">Lihat gambar candlestick di bawah. Apakah garis putus-putus ini menunjukkan level Support atau Resistance?</p>
+                            <div class="flex justify-center mb-4">
+                                <!-- Example Candlestick for Quiz -->
+                                <div class="relative flex items-end h-24">
+                                    <div class="candlestick green" style="height: 60px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 50px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick green" style="height: 70px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 60px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick green" style="height: 65px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 55px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick red" style="height: 40px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 30px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick red" style="height: 50px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 40px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick red" style="height: 45px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 35px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <!-- Dashed line representing resistance -->
+                                    <div style="position: absolute; top: 10px; left: 0; right: 0; border-top: 2px dashed #9333ea; width: 100%; height: 2px;"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4">
+                                <button class="quiz-answer-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700" data-answer="resistance">Resistance</button>
+                                <button class="quiz-answer-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700" data-answer="support">Support</button>
+                            </div>
+                            <div id="quiz-feedback-sr" class="mt-4 p-3 rounded-lg hidden"></div>
+                        </div>
+
+                        <div class="mb-6 p-4 border border-purple-200 rounded-lg bg-purple-50">
+                            <h4 class="font-semibold text-lg mb-3 text-purple-800">Kuis: Apakah Ini Bisa Breakout?</h4>
+                            <p class="text-gray-700 mb-4">Perhatikan pola candlestick ini. Apakah ini menunjukkan potensi breakout ke atas dari level resistance?</p>
+                            <div class="flex justify-center mb-4">
+                                <!-- Example Candlestick for Breakout Quiz -->
+                                <div class="relative flex items-end h-24">
+                                    <div class="candlestick green" style="height: 30px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 20px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick green" style="height: 35px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 25px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick green" style="height: 40px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 30px;"></div><div class="wick" style="height: 5px;"></div></div>
+                                    <div class="candlestick green" style="height: 70px;"><div class="wick" style="height: 5px;"></div><div class="body" style="height: 60px;"></div><div class="wick" style="height: 5px;"></div></div> <!-- Large bullish candle -->
+                                    <!-- Dashed line representing resistance -->
+                                    <div style="position: absolute; top: 30px; left: 0; right: 0; border-top: 2px dashed #059669; width: 100%; height: 2px;"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4">
+                                <button class="quiz-answer-btn bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700" data-answer="yes">Ya, potensi breakout</button>
+                                <button class="quiz-answer-btn bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700" data-answer="no">Tidak yakin / Tidak</button>
+                            </div>
+                            <div id="quiz-feedback-breakout" class="mt-4 p-3 rounded-lg hidden"></div>
+                        </div>
+
+                        <h4 class="font-semibold text-lg mb-3">Kartu Edukasi Indikator & Pola Candlestick</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h5 class="font-bold text-md mb-2">RSI (Relative Strength Index)</h5>
+                                <p class="text-sm text-gray-700">Mengukur kecepatan dan perubahan pergerakan harga. Membantu mengidentifikasi kondisi overbought (di atas 70) atau oversold (di bawah 30).</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h5 class="font-bold text-md mb-2">MACD (Moving Average Convergence Divergence)</h5>
+                                <p class="text-sm text-gray-700">Mengungkap momentum, arah, dan durasi tren harga. Sinyal beli/jual sering terjadi saat garis MACD melintasi garis sinyal.</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h5 class="font-bold text-md mb-2">SMA (Simple Moving Average)</h5>
+                                <p class="text-sm text-gray-700">Menghaluskan data harga untuk menciptakan garis tren. Digunakan untuk mengidentifikasi arah tren dan level support/resistance dinamis.</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h5 class="font-bold text-md mb-2">Pola Candlestick Pembalikan</h5>
+                                <p class="text-sm text-gray-700">Formasi seperti Hammer, Doji, dan Engulfing menunjukkan potensi perubahan arah tren. Pelajari lebih lanjut di <a href="#pustaka" class="text-indigo-600 hover:underline">Pustaka Pola</a>.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -564,8 +833,6 @@
                 </div>
             </section>
 
-            <!-- Removed "Strategi Koin" section as requested -->
-
             <!-- Perisai Trader Section -->
             <section id="perisai" class="view hidden">
                  <h2 class="text-3xl font-bold mb-6">Perisai Trader: Risiko & Psikologi</h2>
@@ -621,6 +888,31 @@
                     <div class="bg-white p-6 rounded-xl shadow-sm">
                         <h3 class="text-xl font-bold mb-4">Menguasai Pikiran Anda</h3>
                         <div id="psychology-content"></div>
+                        <!-- New content for Psychology & Risk -->
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-lg mb-2">Jurnal Trading: Peta Jalan Anda Menuju Disiplin</h4>
+                            <p class="text-gray-600 mb-4">Jurnal trading adalah alat paling ampuh untuk peningkatan. Ini bukan hanya tentang mencatat angka, tapi juga emosi dan pelajaran dari setiap perdagangan.</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>**Catat:** Tanggal, koin, aksi (beli/jual), harga masuk/keluar, ukuran posisi, P/L.</li>
+                                <li>**Analisis:** Mengapa Anda masuk? Apa yang Anda harapkan? Apa yang sebenarnya terjadi?</li>
+                                <li>**Refleksi:** Bagaimana perasaan Anda selama perdagangan? Apakah Anda mengikuti rencana? Apa pelajaran yang bisa diambil?</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-lg mb-2">Infografis: FOMO vs FUD</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-yellow-50 p-4 rounded-lg text-yellow-800">
+                                    <h5 class="font-bold text-md mb-2">😱 FOMO (Fear Of Missing Out)</h5>
+                                    <p class="text-sm">Dorongan untuk membeli saat harga melonjak karena takut ketinggalan. Seringkali membeli di puncak.</p>
+                                    <p class="text-sm mt-2 font-semibold">Cara Menghindari: Tetap pada rencana, jangan kejar harga, selalu ada peluang lain.</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg text-red-800">
+                                    <h5 class="font-bold text-md mb-2">😨 FUD (Fear, Uncertainty, Doubt)</h5>
+                                    <p class="text-sm">Ketakutan, ketidakpastian, dan keraguan yang menyebabkan penjualan panik. Seringkali menjual di dasar.</p>
+                                    <p class="text-sm mt-2 font-semibold">Cara Menghindari: Lakukan riset sendiri, jangan panik, percaya pada analisis fundamental jangka panjang.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-8 bg-white p-6 rounded-xl shadow-sm">
@@ -644,6 +936,206 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </section>
+
+            <!-- Keamanan Section (NEW) -->
+            <section id="keamanan" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6">Keamanan di Dunia Kripto: Lindungi Aset Anda</h2>
+                <p class="text-gray-600 mb-8">Dunia kripto menawarkan kebebasan finansial, tetapi juga penuh dengan risiko jika Anda tidak hati-hati. Keamanan adalah prioritas utama!</p>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                    <h3 class="text-xl font-bold mb-4">CEX (Centralized Exchange) vs DEX (Decentralized Exchange)</h3>
+                    <p class="text-gray-600 mb-4">Pahami perbedaan platform tempat Anda berdagang.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg text-blue-800">
+                            <h4 class="font-bold text-md mb-2">CEX (Bursa Terpusat)</h4>
+                            <p class="text-sm">Contoh: Binance, Indodax. Anda mempercayakan aset Anda kepada pihak ketiga. Mudah digunakan, likuiditas tinggi, tapi rentan peretasan pusat.</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-green-800">
+                            <h4 class="font-bold text-md mb-2">DEX (Bursa Terdesentralisasi)</h4>
+                            <p class="text-sm">Contoh: Uniswap, PancakeSwap. Anda memegang kendali penuh atas aset Anda (non-custodial). Lebih aman dari peretasan pusat, tapi lebih kompleks dan likuiditas bisa lebih rendah.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                    <h3 class="text-xl font-bold mb-4">Cara Aman Menyimpan Private Key & Seed Phrase</h3>
+                    <p class="text-gray-600 mb-4">Ini adalah kunci harta karun Anda! Jangan pernah memberikannya kepada siapa pun.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>**Tulis di kertas:** Simpan di tempat yang aman (brankas, safety deposit box). Buat beberapa salinan.</li>
+                        <li>**Jangan simpan digital:** Hindari menyimpan di komputer, ponsel, cloud, atau email.</li>
+                        <li>**Gunakan Hardware Wallet:** Perangkat fisik yang menyimpan kunci Anda secara offline (misal: Ledger, Trezor). Ini adalah cara paling aman.</li>
+                        <li>**Hafalkan (opsional):** Jika Anda memiliki seed phrase yang pendek dan bisa dihafal, ini bisa menjadi lapisan keamanan tambahan, tapi tetap miliki salinan fisik.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                    <h3 class="text-xl font-bold mb-4">Checklist Verifikasi: Hindari Penipuan!</h3>
+                    <p class="text-gray-600 mb-4">Sebelum mengklik link atau berinteraksi dengan kontrak, selalu periksa ini:</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>**Periksa URL:** Pastikan URL situs web adalah yang resmi (misal: `binance.com` bukan `binnance.com`). Perhatikan ejaan yang salah!</li>
+                        <li>**Verifikasi Kontrak Token:** Saat berinteraksi dengan token baru di DEX, selalu periksa alamat kontraknya di CoinGecko atau CoinMarketCap untuk memastikan itu adalah kontrak yang sah.</li>
+                        <li>**Jangan Percaya Airdrop Palsu:** Jika terlalu bagus untuk menjadi kenyataan (misal: "Kirim 0.1 ETH untuk menerima 10 ETH"), itu adalah scam.</li>
+                        <li>**Phishing Email/DM:** Jangan pernah mengklik link dari email atau pesan yang mencurigakan yang meminta private key atau seed phrase Anda. Bursa atau dompet tidak akan pernah meminta itu.</li>
+                    </ul>
+                    <div class="mt-4 p-4 bg-red-100 rounded-lg text-red-800">
+                        <p class="font-semibold mb-2">Contoh Scam Umum:</p>
+                        <p class="text-sm">
+                            **Phishing Email:** Anda mungkin menerima email yang terlihat seperti dari bursa favorit Anda, meminta Anda untuk "memverifikasi akun" dengan mengklik tautan. Tautan tersebut akan membawa Anda ke situs palsu yang terlihat persis sama, dan jika Anda memasukkan kredensial Anda, mereka akan mencurinya. <br/>
+                             <br/>
+                            **Rug Pull:** Proyek baru menjanjikan keuntungan besar, menarik banyak investor, lalu tim menghilang dengan semua dana. Tidak ada use case nyata, tim anonim, dan likuiditas tiba-tiba ditarik.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hal Islam Section (NEW) -->
+            <section id="hal-islam" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6">Kripto dalam Pandangan Islam (Syariah)</h2>
+                <p class="text-gray-600 mb-8">Bagi sebagian umat Muslim, memahami status halal atau haramnya kripto adalah hal penting. Mari kita telusuri pandangan syariah.</p>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                    <h3 class="text-xl font-bold mb-4">Fatwa MUI & Perbedaan Pendapat Ulama</h3>
+                    <p class="text-gray-600 mb-4">Majelis Ulama Indonesia (MUI) telah mengeluarkan fatwa tentang kripto, namun ada juga pandangan dari ulama internasional.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>**Fatwa DSN-MUI:** Dewan Syariah Nasional MUI menyatakan kripto sebagai aset digital yang sah untuk diperdagangkan, asalkan memenuhi syarat sebagai komoditas atau aset yang memiliki manfaat, tidak mengandung gharar (ketidakpastian berlebihan), dharar (bahaya), dan riba. Namun, penggunaan kripto sebagai mata uang (alat tukar) masih diperdebatkan dan cenderung tidak diperbolehkan.</li>
+                        <li>**Mufti Taqi Usmani:** Ulama terkemuka ini berpendapat bahwa mata uang kripto tidak memenuhi definisi mata uang syariah karena tidak memiliki dukungan fisik dan volatilitasnya tinggi, sehingga lebih mirip komoditas atau saham. Pandangannya cenderung konservatif terhadap penggunaan kripto sebagai mata uang.</li>
+                        <li>**Perbedaan Pendapat:** Ada ulama lain yang memiliki pandangan lebih longgar, menganggap kripto sebagai aset yang sah jika digunakan untuk tujuan yang halal dan tidak melanggar prinsip syariah.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm mb-8">
+                    <h3 class="text-xl font-bold mb-4">Kriteria Trading Kripto yang Halal (Menurut Mayoritas Ulama)</h3>
+                    <p class="text-gray-600 mb-4">Untuk memastikan trading Anda sesuai syariah, perhatikan kriteria berikut:</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><span class="font-semibold">🚫 Tanpa Leverage/Margin:</span> Hindari perdagangan dengan utang atau pinjaman berbunga (riba).</li>
+                        <li><span class="font-semibold">✅ Bebas Riba:</span> Pastikan transaksi tidak melibatkan bunga atau elemen riba lainnya.</li>
+                        <li><span class="font-semibold">💰 Tidak Spekulatif Berlebihan:</span> Trading harus didasari analisis dan tujuan investasi yang jelas, bukan hanya judi atau untung-untungan.</li>
+                        <li><span class="font-semibold">📈 Ada Manfaat Riil:</span> Koin yang diperdagangkan harus memiliki use case atau nilai intrinsik yang jelas, bukan hanya koin meme tanpa fundamental.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Checklist Syariah Koin</h3>
+                    <p class="text-gray-600 mb-4">Gunakan ini untuk mengevaluasi apakah sebuah koin cenderung halal atau haram untuk diperdagangkan.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-green-50 text-green-800">
+                            <h4 class="font-bold text-lg mb-2">✅ Cenderung Halal</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li>**Utility Koin Jelas:** Koin memiliki fungsi nyata (misal: untuk pembayaran, smart contract, tata kelola).</li>
+                                <li>**Transparansi Dev:** Tim pengembang dikenal dan transparan.</li>
+                                <li>**Tidak Manipulatif:** Proyek tidak terlibat dalam skema pump-and-dump atau manipulasi pasar.</li>
+                                <li>**Aset Dasar Halal:** Jika token merepresentasikan aset, aset tersebut harus halal.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-lg bg-red-50 text-red-800">
+                            <h4 class="font-bold text-lg mb-2">❌ Cenderung Haram</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1">
+                                <li>**Koin Meme Tanpa Utility:** Koin yang hanya didasari hype tanpa fungsi nyata.</li>
+                                <li>**Proyek Anonim/Tidak Jelas:** Tim tidak dikenal, tujuan proyek tidak transparan.</li>
+                                <li>**Skema Ponzi/Piramida:** Janji keuntungan tidak realistis, mengandalkan rekrutmen anggota baru.</li>
+                                <li>**Terlibat Judi/Riba:** Proyek yang memfasilitasi aktivitas haram seperti judi atau riba.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roadmap / Belajar Section (NEW) -->
+            <section id="roadmap" class="view hidden">
+                <h2 class="text-3xl font-bold mb-6">Roadmap Belajar Trading Kripto</h2>
+                <p class="text-gray-600 mb-8">Perjalanan menjadi trader handal membutuhkan tahapan. Ikuti roadmap ini untuk panduan belajar Anda!</p>
+
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-item-content bg-indigo-50">
+                            <h3 class="font-bold text-lg text-indigo-800">Tahap 1: Blockchain & Kripto Dasar</h3>
+                            <p class="text-sm text-gray-700">Durasi: 2 Minggu</p>
+                            <p class="text-sm mt-2">Pahami fondasi teknologi di balik kripto. Apa itu blockchain, desentralisasi, mining, dan bagaimana transaksi bekerja.</p>
+                            <ul class="list-disc list-inside text-xs mt-2 text-gray-600">
+                                <li>Apa itu Bitcoin & Ethereum</li>
+                                <li>Konsep Private Key & Public Key</li>
+                                <li>Jenis-jenis Wallet (Hot vs Cold)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-item-content bg-purple-50">
+                            <h3 class="font-bold text-lg text-purple-800">Tahap 2: Analisis Fundamental (FA)</h3>
+                            <p class="text-sm text-gray-700">Durasi: 1-2 Minggu</p>
+                            <p class="text-sm mt-2">Belajar mengevaluasi nilai intrinsik sebuah proyek kripto. Fokus pada "mengapa" sebuah koin berharga.</p>
+                            <ul class="list-disc list-inside text-xs mt-2 text-gray-600">
+                                <li>Market Cap & Volume</li>
+                                <li>Use Case & Teknologi Proyek</li>
+                                <li>Tim, Komunitas, & Kemitraan</li>
+                                <li>Tokenomics & Vesting Schedule</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-item-content bg-green-50">
+                            <h3 class="font-bold text-lg text-green-800">Tahap 3: Analisis Teknikal (TA)</h3>
+                            <p class="text-sm text-gray-700">Durasi: 1-2 Minggu</p>
+                            <p class="text-sm mt-2">Pelajari cara membaca grafik harga dan memprediksi pergerakan harga di masa depan. Fokus pada "kapan" harus masuk/keluar.</p>
+                            <ul class="list-disc list-inside text-xs mt-2 text-gray-600">
+                                <li>Pola Candlestick & Grafik</li>
+                                <li>Support & Resistance</li>
+                                <li>Indikator Populer (RSI, MACD, MA)</li>
+                                <li>Volume Trading</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-item-content bg-yellow-50">
+                            <h3 class="font-bold text-lg text-yellow-800">Tahap 4: Psikologi & Manajemen Risiko</h3>
+                            <p class="text-sm text-gray-700">Durasi: Fleksibel (Berlatih Sepanjang Waktu)</p>
+                            <p class="text-sm mt-2">Ini adalah kunci kesuksesan jangka panjang. Kuasai emosi Anda dan lindungi modal Anda.</p>
+                            <ul class="list-disc list-inside text-xs mt-2 text-gray-600">
+                                <li>Mengelola Emosi (FOMO, FUD, Greed, Fear)</li>
+                                <li>Menentukan Stop-Loss & Take-Profit</li>
+                                <li>Menghitung Ukuran Posisi</li>
+                                <li>Pentingnya Jurnal Trading</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-item-content bg-blue-50">
+                            <h3 class="font-bold text-lg text-blue-800">Tahap 5: Demo Trading (Simulasi)</h3>
+                            <p class="text-sm text-gray-700">Durasi: Sampai Percaya Diri</p>
+                            <p class="text-sm mt-2">Praktikkan semua yang telah Anda pelajari di lingkungan bebas risiko. Gunakan fitur simulasi di aplikasi ini!</p>
+                            <ul class="list-disc list-inside text-xs mt-2 text-gray-600">
+                                <li>Menerapkan Strategi FA & TA</li>
+                                <li>Melatih Disiplin & Emosi</li>
+                                <li>Menguji Sistem Trading Pribadi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-item-content bg-red-50">
+                            <h3 class="font-bold text-lg text-red-800">Tahap 6: Real Trading (dengan Hati-hati)</h3>
+                            <p class="text-sm text-gray-700">Durasi: Seumur Hidup (Belajar Berkelanjutan)</p>
+                            <p class="text-sm mt-2">Jika sudah percaya diri, mulailah dengan modal kecil. Pasar nyata berbeda, jadi terus belajar dan sesuaikan.</p>
+                            <ul class="list-disc list-inside text-xs mt-2 text-gray-600">
+                                <li>Mulai dengan Modal Kecil</li>
+                                <li>Terus Belajar & Beradaptasi</li>
+                                <li>Review Jurnal Trading Secara Rutin</li>
+                                <li>Disiplin adalah Kunci!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Tools & Sumber Daya Rekomendasi</h3>
+                    <p class="text-gray-600 mb-4">Berikut adalah beberapa alat yang akan membantu perjalanan trading Anda:</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>**TradingView:** Untuk charting dan analisis teknikal profesional.</li>
+                        <li>**CoinGecko / CoinMarketCap:** Untuk data harga, market cap, volume, dan riset fundamental koin.</li>
+                        <li>**Metamask / Trust Wallet:** Dompet kripto non-custodial untuk menyimpan aset Anda dengan aman dan berinteraksi dengan DEX.</li>
+                        <li>**Grafana (Opsional):** Untuk visualisasi data yang lebih kompleks jika Anda tertarik pada analisis lanjutan.</li>
+                    </ul>
+                    <p class="text-gray-600 mt-4">Anda dapat mengunduh <a href="#" class="text-indigo-600 font-semibold hover:underline">Checklist Belajar Trading Kripto (PDF)</a> untuk melacak kemajuan Anda.</p>
                 </div>
             </section>
         </main>
@@ -836,6 +1328,7 @@ window.onload = () => {
             nav.classList.toggle('active', nav.hash === `#${state.activeView}`);
         });
 
+        // Only call updateSimulationUI if the simulation view is active
         if (state.activeView === 'simulasi') {
             updateSimulationUI();
             // If navigating to simulation and chart is not initialized, initialize it
@@ -852,13 +1345,15 @@ window.onload = () => {
     function init() {
         // Initial setup functions
         setupNavigation();
-        populateDasarContent();
+        populateDasarContent(); // This function now primarily handles static content or can be removed if content is directly in HTML
         populatePatternLibraries();
         populatePsychologyContent();
         setupRiskCalculators();
         setupGeminiFeatures(); // New function for Gemini features
         setupSimulation(); // New function for simulation
         insertCandlestickExamples(); // Call this after DOM is loaded and function is defined
+        setupSimulationQuiz(); // Setup quiz for simulation section
+        setupCoinChecklist(); // Setup coin checklist for new section
 
         // Set initial view
         const initialView = window.location.hash ? window.location.hash.substring(1) : 'dasbor';
@@ -869,53 +1364,57 @@ window.onload = () => {
     function setupNavigation() {
         document.querySelectorAll('.nav-item, .nav-direct').forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
+                e.preventDefault(); // Prevent default anchor link behavior
                 const viewId = e.currentTarget.hash.substring(1);
-                state.activeView = viewId;
-                window.location.hash = viewId;
-                render();
+                state.activeView = viewId; // Update the active view in state
+                window.location.hash = viewId; // Update URL hash for direct linking/bookmarks
+                render(); // Re-render the UI based on the new activeView
             });
         });
+        // This listener handles direct URL hash changes (e.g., user types #simulasi in browser bar)
         window.addEventListener('hashchange', () => {
             const viewId = window.location.hash ? window.location.hash.substring(1) : 'dasbor';
-            state.activeView = viewId;
-            render();
+            // Only update state.activeView and render if the hash has actually changed to a different view
+            // to avoid redundant renders or conflicts with click events.
+            if (state.activeView !== viewId) {
+                state.activeView = viewId;
+                render();
+            }
         });
     }
 
     function populateDasarContent() {
-        const container = document.getElementById('dasar-content');
-        container.innerHTML = appData.dasar.map(item => `
-            <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h3 class="text-xl font-bold mb-3">${item.title}</h3>
-                <p class="text-gray-700 leading-relaxed">${item.content}</p>
-            </div>
-        `).join('');
+        // This function now primarily handles static content or can be removed if content is directly in HTML
+        // For now, it's empty as the content is directly in the HTML structure.
     }
     
     function populatePatternLibraries() {
         const candlestickContainer = document.getElementById('candlestick-patterns-container');
-        candlestickContainer.innerHTML = appData.candlestickPatterns.map((p, index) => `
-            <div class="bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-shadow pattern-card" data-pattern-type="candlestick" data-pattern-index="${index}">
-                <div class="flex justify-between items-start">
-                    <div>
-                         <h4 class="font-bold">${p.name}</h4>
-                         <p class="text-sm font-semibold ${p.signal.includes('Bullish') ? 'text-green-600' : 'text-red-600'}">${p.signal}</p>
+        if (candlestickContainer) { // Add null check
+            candlestickContainer.innerHTML = appData.candlestickPatterns.map((p, index) => `
+                <div class="bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-shadow pattern-card" data-pattern-type="candlestick" data-pattern-index="${index}">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold">${p.name}</h4>
+                            <p class="text-sm font-semibold ${p.signal.includes('Bullish') ? 'text-green-600' : 'text-red-600'}">${p.signal}</p>
+                        </div>
+                        <div class="candlestick-illustration">${generateCandlestickIllustration(p.illustration)}</div>
                     </div>
-                    <div class="candlestick-illustration">${generateCandlestickIllustration(p.illustration)}</div>
+                    <p class="text-sm text-gray-600 mt-2">${p.desc}</p>
                 </div>
-                <p class="text-sm text-gray-600 mt-2">${p.desc}</p>
-            </div>
-        `).join('');
+            `).join('');
+        }
 
         const chartPatternContainer = document.getElementById('chart-patterns-container');
-        chartPatternContainer.innerHTML = appData.chartPatterns.map((p, index) => `
-            <div class="bg-white p-6 rounded-xl shadow-sm cursor-pointer hover:shadow-md transition-shadow pattern-card" data-pattern-type="chart" data-pattern-index="${index}">
-                <h4 class="font-bold text-lg mb-1">${p.name}</h4>
-                <p class="text-sm font-semibold mb-2 ${p.type.includes('Bullish') ? 'text-green-600' : 'text-red-600'}">${p.type}</p>
-                <p class="text-sm text-gray-600">${p.desc}</p>
-            </div>
-        `).join('');
+        if (chartPatternContainer) { // Add null check
+            chartPatternContainer.innerHTML = appData.chartPatterns.map((p, index) => `
+                <div class="bg-white p-6 rounded-xl shadow-sm cursor-pointer hover:shadow-md transition-shadow pattern-card" data-pattern-type="chart" data-pattern-index="${index}">
+                    <h4 class="font-bold text-lg mb-1">${p.name}</h4>
+                    <p class="text-sm font-semibold mb-2 ${p.type.includes('Bullish') ? 'text-green-600' : 'text-red-600'}">${p.type}</p>
+                    <p class="text-sm text-gray-600">${p.desc}</p>
+                </div>
+            `).join('');
+        }
 
         document.querySelectorAll('.pattern-card').forEach(card => {
             card.addEventListener('click', (e) => {
@@ -973,23 +1472,31 @@ window.onload = () => {
 
     function populatePsychologyContent() {
         const container = document.getElementById('psychology-content');
-        container.innerHTML = appData.psychology.map(p => `
-            <div class="mb-5">
-                <h4 class="font-semibold text-lg mb-2 flex items-center">${p.emoji} <span class="ml-2">${p.name}</span></h4>
-                <p class="text-gray-600 text-sm mb-2">${p.desc}</p>
-                <div class="bg-indigo-50 text-indigo-800 p-3 rounded-lg text-sm">
-                    <strong class="font-semibold">Solusi:</strong> ${p.solution}
+        if (container) { // Add null check
+            container.innerHTML = appData.psychology.map(p => `
+                <div class="mb-5">
+                    <h4 class="font-semibold text-lg mb-2 flex items-center">${p.emoji} <span class="ml-2">${p.name}</span></h4>
+                    <p class="text-gray-600 text-sm mb-2">${p.desc}</p>
+                    <div class="bg-indigo-50 text-indigo-800 p-3 rounded-lg text-sm">
+                        <strong class="font-semibold">Solusi:</strong> ${p.solution}
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `).join('');
+        }
     }
 
     function setupRiskCalculators() {
         const inputsPosSize = ['pos-size-account', 'pos-size-risk', 'pos-size-entry', 'pos-size-sl'];
         const inputsRR = ['rr-entry', 'rr-tp', 'rr-sl'];
         
-        inputsPosSize.forEach(id => document.getElementById(id).addEventListener('input', calculatePositionSize));
-        inputsRR.forEach(id => document.getElementById(id).addEventListener('input', calculateRiskReward));
+        inputsPosSize.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', calculatePositionSize);
+        });
+        inputsRR.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', calculateRiskReward);
+        });
     }
 
     function calculatePositionSize() {
@@ -1000,9 +1507,11 @@ window.onload = () => {
         const resultEl = document.getElementById('pos-size-result');
 
         if (isNaN(accountSize) || isNaN(riskPercent) || isNaN(entryPrice) || isNaN(slPrice) || entryPrice <= slPrice) {
-            showAlert("Masukkan semua nilai yang valid untuk Ukuran Posisi."); 
-            resultEl.innerHTML = "Masukkan semua nilai yang valid.";
-            resultEl.className = "mt-4 text-center bg-red-50 p-3 rounded-lg font-semibold text-red-800";
+            if (resultEl) {
+                showAlert("Masukkan semua nilai yang valid untuk Ukuran Posisi."); 
+                resultEl.innerHTML = "Masukkan semua nilai yang valid.";
+                resultEl.className = "mt-4 text-center bg-red-50 p-3 rounded-lg font-semibold text-red-800";
+            }
             return;
         }
 
@@ -1010,8 +1519,10 @@ window.onload = () => {
         const riskPerShare = entryPrice - slPrice;
         const positionSize = riskAmount / riskPerShare;
 
-        resultEl.innerHTML = `Beli ${positionSize.toFixed(4)} unit (${(positionSize * entryPrice).toLocaleString('id-ID', {style:'currency', currency:'USD', minimumFractionDigits: 2})})`;
-        resultEl.className = "mt-4 text-center bg-indigo-50 p-3 rounded-lg font-semibold text-indigo-800";
+        if (resultEl) {
+            resultEl.innerHTML = `Beli ${positionSize.toFixed(4)} unit (${(positionSize * entryPrice).toLocaleString('id-ID', {style:'currency', currency:'USD', minimumFractionDigits: 2})})`;
+            resultEl.className = "mt-4 text-center bg-indigo-50 p-3 rounded-lg font-semibold text-indigo-800";
+        }
     }
 
     function calculateRiskReward() {
@@ -1021,9 +1532,11 @@ window.onload = () => {
         const resultEl = document.getElementById('rr-result');
 
         if (isNaN(entryPrice) || isNaN(tpPrice) || isNaN(slPrice) || entryPrice <= slPrice || entryPrice >= tpPrice) {
-             showAlert("Masukkan semua nilai yang valid untuk Rasio Risiko-Imbalan."); 
-             resultEl.innerHTML = "Masukkan semua nilai yang valid.";
-             resultEl.className = "mt-4 text-center bg-red-50 p-3 rounded-lg font-semibold text-red-800";
+            if (resultEl) {
+                showAlert("Masukkan semua nilai yang valid untuk Rasio Risiko-Imbalan."); 
+                resultEl.innerHTML = "Masukkan semua nilai yang valid.";
+                resultEl.className = "mt-4 text-center bg-red-50 p-3 rounded-lg font-semibold text-red-800";
+            }
             return;
         }
 
@@ -1039,8 +1552,10 @@ window.onload = () => {
         } else {
              className += "bg-red-50 text-red-800";
         }
-        resultEl.className = className;
-        resultEl.innerHTML = `Rasio 1 : ${ratio.toFixed(2)} ${ratio >= 2 ? '👍' : (ratio >= 1 ? '🤔' : '👎')}`;
+        if (resultEl) {
+            resultEl.className = className;
+            resultEl.innerHTML = `Rasio 1 : ${ratio.toFixed(2)} ${ratio >= 2 ? '👍' : (ratio >= 1 ? '🤔' : '👎')}`;
+        }
     }
 
     // --- GEMINI API INTEGRATION ---
@@ -1081,19 +1596,21 @@ window.onload = () => {
         const tradeIdeaContentDiv = document.getElementById('trade-idea-content');
         const tradeIdeaLoadingDiv = document.getElementById('trade-idea-loading');
 
-        generateTradeIdeaBtn.addEventListener('click', async () => {
-            tradeIdeaResultDiv.classList.add('hidden');
-            tradeIdeaLoadingDiv.classList.remove('hidden');
-            tradeIdeaContentDiv.innerHTML = '';
+        if (generateTradeIdeaBtn) { // Add null check
+            generateTradeIdeaBtn.addEventListener('click', async () => {
+                if (tradeIdeaResultDiv) tradeIdeaResultDiv.classList.add('hidden');
+                if (tradeIdeaLoadingDiv) tradeIdeaLoadingDiv.classList.remove('hidden');
+                if (tradeIdeaContentDiv) tradeIdeaContentDiv.innerHTML = '';
 
-            const coinName = "koin kripto yang sedang Anda analisis";
-            const prompt = `Berikan ide trading hipotetis (entry, stop-loss, take-profit, dan alasan singkat) untuk ${coinName} di pasar kripto. Anggap pasar sedang dalam tren acak. Format respons sebagai poin-poin.`;
+                const coinName = "koin kripto yang sedang Anda analisis";
+                const prompt = `Berikan ide trading hipotetis (entry, stop-loss, take-profit, dan alasan singkat) untuk ${coinName} di pasar kripto. Anggap pasar sedang dalam tren acak. Format respons sebagai poin-poin.`;
 
-            const idea = await callGeminiAPI(prompt);
-            tradeIdeaContentDiv.innerHTML = idea;
-            tradeIdeaLoadingDiv.classList.add('hidden');
-            tradeIdeaResultDiv.classList.remove('hidden');
-        });
+                const idea = await callGeminiAPI(prompt);
+                if (tradeIdeaContentDiv) tradeIdeaContentDiv.innerHTML = idea;
+                if (tradeIdeaLoadingDiv) tradeIdeaLoadingDiv.classList.add('hidden');
+                if (tradeIdeaResultDiv) tradeIdeaResultDiv.classList.remove('hidden');
+            });
+        }
 
         // Market Sentiment Generator
         const generateSentimentBtn = document.getElementById('generate-sentiment-btn');
@@ -1101,19 +1618,21 @@ window.onload = () => {
         const sentimentContentDiv = document.getElementById('sentiment-content');
         const sentimentLoadingDiv = document.getElementById('sentiment-loading');
 
-        generateSentimentBtn.addEventListener('click', async () => {
-            sentimentResultDiv.classList.add('hidden');
-            sentimentLoadingDiv.classList.remove('hidden');
-            sentimentContentDiv.innerHTML = '';
+        if (generateSentimentBtn) { // Add null check
+            generateSentimentBtn.addEventListener('click', async () => {
+                if (sentimentResultDiv) sentimentResultDiv.classList.add('hidden');
+                if (sentimentLoadingDiv) sentimentLoadingDiv.classList.remove('hidden');
+                if (sentimentContentDiv) sentimentContentDiv.innerHTML = '';
 
-            const coinName = "koin kripto yang sedang Anda analisis";
-            const prompt = `Berikan analisis sentimen pasar (bullish, bearish, atau netral) singkat untuk ${coinName} di pasar kripto saat ini, beserta alasan singkatnya. Anggap Anda adalah analis pasar yang menyederhanakan informasi untuk pemula.`;
+                const coinName = "koin kripto yang sedang Anda analisis";
+                const prompt = `Berikan analisis sentimen pasar (bullish, bearish, atau netral) singkat untuk ${coinName} di pasar kripto saat ini, beserta alasan singkatnya. Anggap Anda adalah analis pasar yang menyederhanakan informasi untuk pemula.`;
 
-            const sentiment = await callGeminiAPI(prompt);
-            sentimentContentDiv.innerHTML = sentiment;
-            sentimentLoadingDiv.classList.add('hidden');
-            sentimentResultDiv.classList.remove('hidden');
-        });
+                const sentiment = await callGeminiAPI(prompt);
+                if (sentimentContentDiv) sentimentContentDiv.innerHTML = sentiment;
+                if (sentimentLoadingDiv) sentimentLoadingDiv.classList.add('hidden');
+                if (sentimentResultDiv) sentimentResultDiv.classList.remove('hidden');
+            });
+        }
 
         // Ask AI Expert
         const askAiBtn = document.getElementById('ask-ai-btn');
@@ -1122,27 +1641,33 @@ window.onload = () => {
         const aiAnswerContentDiv = document.getElementById('ai-answer-content');
         const aiAnswerLoadingDiv = document.getElementById('ai-answer-loading');
 
-        askAiBtn.addEventListener('click', async () => {
-            const question = aiQuestionInput.value.trim();
-            if (!question) {
-                aiAnswerResultDiv.classList.remove('hidden');
-                aiAnswerResultDiv.className = "mt-4 p-4 bg-red-50 rounded-lg text-red-800";
-                aiAnswerContentDiv.innerHTML = "Mohon masukkan pertanyaan Anda.";
-                return;
-            }
+        if (askAiBtn) { // Add null check
+            askAiBtn.addEventListener('click', async () => {
+                const question = aiQuestionInput ? aiQuestionInput.value.trim() : '';
+                if (!question) {
+                    if (aiAnswerResultDiv) {
+                        aiAnswerResultDiv.classList.remove('hidden');
+                        aiAnswerResultDiv.className = "mt-4 p-4 bg-red-50 rounded-lg text-red-800";
+                    }
+                    if (aiAnswerContentDiv) aiAnswerContentDiv.innerHTML = "Mohon masukkan pertanyaan Anda.";
+                    return;
+                }
 
-            aiAnswerResultDiv.classList.add('hidden');
-            aiAnswerLoadingDiv.classList.remove('hidden');
-            aiAnswerContentDiv.innerHTML = '';
+                if (aiAnswerResultDiv) aiAnswerResultDiv.classList.add('hidden');
+                if (aiAnswerLoadingDiv) aiAnswerLoadingDiv.classList.remove('hidden');
+                if (aiAnswerContentDiv) aiAnswerContentDiv.innerHTML = '';
 
-            const prompt = `Sebagai ahli trading kripto, jelaskan "${question}" dengan bahasa yang mudah dimengerti oleh pemula berusia 14 tahun, fokus pada konsep dasar kripto. Jangan gunakan jargon yang tidak perlu.`;
+                const prompt = `Sebagai ahli trading kripto, jelaskan "${question}" dengan bahasa yang mudah dimengerti oleh pemula berusia 14 tahun, fokus pada konsep dasar kripto. Jangan gunakan jargon yang tidak perlu.`;
 
-            const answer = await callGeminiAPI(prompt);
-            aiAnswerContentDiv.innerHTML = answer;
-            aiAnswerLoadingDiv.classList.add('hidden');
-            aiAnswerResultDiv.classList.remove('hidden');
-            aiAnswerResultDiv.className = "mt-4 p-4 bg-indigo-50 rounded-lg text-indigo-800";
-        });
+                const answer = await callGeminiAPI(prompt);
+                if (aiAnswerContentDiv) aiAnswerContentDiv.innerHTML = answer;
+                if (aiAnswerLoadingDiv) aiAnswerLoadingDiv.classList.add('hidden');
+                if (aiAnswerResultDiv) {
+                    aiAnswerResultDiv.classList.remove('hidden');
+                    aiAnswerResultDiv.className = "mt-4 p-4 bg-indigo-50 rounded-lg text-indigo-800";
+                }
+            });
+        }
 
         // Simulate Scenario
         const simulateScenarioBtn = document.getElementById('simulate-scenario-btn');
@@ -1151,28 +1676,34 @@ window.onload = () => {
         const scenarioContentDiv = document.getElementById('scenario-content');
         const scenarioLoadingDiv = document.getElementById('scenario-loading');
 
-        simulateScenarioBtn.addEventListener('click', async () => {
-            const scenario = scenarioInput.value.trim();
-            if (!scenario) {
-                scenarioResultDiv.classList.remove('hidden');
-                scenarioResultDiv.className = "mt-4 p-4 bg-red-50 rounded-lg text-red-800";
-                scenarioContentDiv.innerHTML = "Mohon masukkan skenario yang ingin disimulasikan.";
-                return;
-            }
+        if (simulateScenarioBtn) { // Add null check
+            simulateScenarioBtn.addEventListener('click', async () => {
+                const scenario = scenarioInput ? scenarioInput.value.trim() : '';
+                if (!scenario) {
+                    if (scenarioResultDiv) {
+                        scenarioResultDiv.classList.remove('hidden');
+                        scenarioResultDiv.className = "mt-4 p-4 bg-red-50 rounded-lg text-red-800";
+                    }
+                    if (scenarioContentDiv) scenarioContentDiv.innerHTML = "Mohon masukkan skenario yang ingin disimulasikan.";
+                    return;
+                }
 
-            scenarioResultDiv.classList.add('hidden');
-            scenarioLoadingDiv.classList.remove('hidden');
-            scenarioContentDiv.innerHTML = '';
+                if (scenarioResultDiv) scenarioResultDiv.classList.add('hidden');
+                if (scenarioLoadingDiv) scenarioLoadingDiv.classList.remove('hidden');
+                if (scenarioContentDiv) scenarioContentDiv.innerHTML = '';
 
-            const coinName = "koin kripto yang sedang Anda analisis";
-            const prompt = `Sebagai ahli trading kripto, jelaskan bagaimana seorang trader mungkin bereaksi dan apa yang harus diperhatikan jika "${scenario}" terjadi pada ${coinName}. Fokus pada analisis teknis dan manajemen risiko. Jelaskan dengan bahasa yang mudah dipahami pemula.`;
+                const coinName = "koin kripto yang sedang Anda analisis";
+                const prompt = `Sebagai ahli trading kripto, jelaskan bagaimana seorang trader mungkin bereaksi dan apa yang harus diperhatikan jika "${scenario}" terjadi pada ${coinName}. Fokus pada analisis teknis dan manajemen risiko. Jelaskan dengan bahasa yang mudah dipahami pemula.`;
 
-            const response = await callGeminiAPI(prompt);
-            scenarioContentDiv.innerHTML = response;
-            scenarioLoadingDiv.classList.add('hidden');
-            scenarioResultDiv.classList.remove('hidden');
-            scenarioResultDiv.className = "mt-4 p-4 bg-purple-50 rounded-lg text-purple-800";
-        });
+                const response = await callGeminiAPI(prompt);
+                if (scenarioContentDiv) scenarioContentDiv.innerHTML = response;
+                if (scenarioLoadingDiv) scenarioLoadingDiv.classList.add('hidden');
+                if (scenarioResultDiv) {
+                    scenarioResultDiv.classList.remove('hidden');
+                    scenarioResultDiv.className = "mt-4 p-4 bg-purple-50 rounded-lg text-purple-800";
+                }
+            });
+        }
 
         // Generate News Summary
         const generateNewsSummaryBtn = document.getElementById('generate-news-summary-btn');
@@ -1180,20 +1711,24 @@ window.onload = () => {
         const newsSummaryContentDiv = document.getElementById('news-summary-content');
         const newsSummaryLoadingDiv = document.getElementById('news-summary-loading');
 
-        generateNewsSummaryBtn.addEventListener('click', async () => {
-            newsSummaryResultDiv.classList.add('hidden');
-            newsSummaryLoadingDiv.classList.remove('hidden');
-            newsSummaryContentDiv.innerHTML = '';
+        if (generateNewsSummaryBtn) { // Add null check
+            generateNewsSummaryBtn.addEventListener('click', async () => {
+                if (newsSummaryResultDiv) newsSummaryResultDiv.classList.add('hidden');
+                if (newsSummaryLoadingDiv) newsSummaryLoadingDiv.classList.remove('hidden');
+                if (newsSummaryContentDiv) newsSummaryContentDiv.innerHTML = '';
 
-            const coinName = "koin kripto yang sedang Anda analisis";
-            const prompt = `Sebagai analis pasar kripto, berikan ringkasan berita hipotetis singkat (1-2 paragraf) yang relevan dengan ${coinName} dan jelaskan bagaimana berita tersebut dapat mempengaruhi harganya secara umum. Fokus pada dampak fundamental dan sentimen pasar. Gunakan bahasa yang mudah dipahami pemula.`;
+                const coinName = "koin kripto yang sedang Anda analisis";
+                const prompt = `Sebagai analis pasar kripto, berikan ringkasan berita hipotetis singkat (1-2 paragraf) yang relevan dengan ${coinName} dan jelaskan bagaimana berita tersebut dapat mempengaruhi harganya secara umum. Fokus pada dampak fundamental dan sentimen pasar. Gunakan bahasa yang mudah dipahami pemula.`;
 
-            const summary = await callGeminiAPI(prompt);
-            newsSummaryContentDiv.innerHTML = summary;
-            newsSummaryLoadingDiv.classList.add('hidden');
-            newsSummaryResultDiv.classList.remove('hidden');
-            newsSummaryResultDiv.className = "mt-4 p-4 bg-blue-50 rounded-lg text-blue-800";
-        });
+                const summary = await callGeminiAPI(prompt);
+                if (newsSummaryContentDiv) newsSummaryContentDiv.innerHTML = summary;
+                if (newsSummaryLoadingDiv) newsSummaryLoadingDiv.classList.add('hidden');
+                if (newsSummaryResultDiv) {
+                    newsSummaryResultDiv.classList.remove('hidden');
+                    newsSummaryResultDiv.className = "mt-4 p-4 bg-blue-50 rounded-lg text-blue-800";
+                }
+            });
+        }
 
         // Explain Jargon
         const explainJargonBtn = document.getElementById('explain-jargon-btn');
@@ -1202,27 +1737,33 @@ window.onload = () => {
         const jargonContentDiv = document.getElementById('jargon-content');
         const jargonLoadingDiv = document.getElementById('jargon-loading');
 
-        explainJargonBtn.addEventListener('click', async () => {
-            const jargon = jargonInput.value.trim();
-            if (!jargon) {
-                jargonResultDiv.classList.remove('hidden');
-                jargonResultDiv.className = "mt-4 p-4 bg-red-50 rounded-lg text-red-800";
-                jargonContentDiv.innerHTML = "Mohon masukkan jargon yang ingin dijelaskan.";
-                return;
-            }
+        if (explainJargonBtn) { // Add null check
+            explainJargonBtn.addEventListener('click', async () => {
+                const jargon = jargonInput ? jargonInput.value.trim() : '';
+                if (!jargon) {
+                    if (jargonResultDiv) {
+                        jargonResultDiv.classList.remove('hidden');
+                        jargonResultDiv.className = "mt-4 p-4 bg-red-50 rounded-lg text-red-800";
+                    }
+                    if (jargonContentDiv) jargonContentDiv.innerHTML = "Mohon masukkan jargon yang ingin dijelaskan.";
+                    return;
+                }
 
-            jargonResultDiv.classList.add('hidden');
-            jargonLoadingDiv.classList.remove('hidden');
-            jargonContentDiv.innerHTML = '';
+                if (jargonResultDiv) jargonResultDiv.classList.add('hidden');
+                if (jargonLoadingDiv) jargonLoadingDiv.classList.remove('hidden');
+                if (jargonContentDiv) jargonContentDiv.innerHTML = '';
 
-            const prompt = `Jelaskan istilah kripto "${jargon}" dengan bahasa yang sangat sederhana dan mudah dimengerti oleh pemula berusia 14 tahun. Berikan analogi singkat jika memungkinkan.`;
+                const prompt = `Jelaskan istilah kripto "${jargon}" dengan bahasa yang sangat sederhana dan mudah dimengerti oleh pemula berusia 14 tahun. Berikan analogi singkat jika memungkinkan.`;
 
-            const explanation = await callGeminiAPI(prompt);
-            jargonContentDiv.innerHTML = explanation;
-            jargonLoadingDiv.classList.add('hidden');
-            jargonResultDiv.classList.remove('hidden');
-            jargonResultDiv.className = "mt-4 p-4 bg-purple-50 rounded-lg text-purple-800";
-        });
+                const explanation = await callGeminiAPI(prompt);
+                if (jargonContentDiv) jargonContentDiv.innerHTML = explanation;
+                if (jargonLoadingDiv) jargonLoadingDiv.classList.add('hidden');
+                if (jargonResultDiv) {
+                    jargonResultDiv.classList.remove('hidden');
+                    jargonResultDiv.className = "mt-4 p-4 bg-purple-50 rounded-lg text-purple-800";
+                }
+            });
+        }
 
         // Predict Trend
         const predictTrendBtn = document.getElementById('predict-trend-btn');
@@ -1230,83 +1771,117 @@ window.onload = () => {
         const trendPredictionContentDiv = document.getElementById('trend-prediction-content');
         const trendPredictionLoadingDiv = document.getElementById('trend-prediction-loading');
 
-        predictTrendBtn.addEventListener('click', async () => {
-            trendPredictionResultDiv.classList.add('hidden');
-            trendPredictionLoadingDiv.classList.remove('hidden');
-            trendPredictionContentDiv.innerHTML = '';
+        if (predictTrendBtn) { // Add null check
+            predictTrendBtn.addEventListener('click', async () => {
+                if (trendPredictionResultDiv) trendPredictionResultDiv.classList.add('hidden');
+                if (trendPredictionLoadingDiv) trendPredictionLoadingDiv.classList.remove('hidden');
+                if (trendPredictionContentDiv) trendPredictionContentDiv.innerHTML = '';
 
-            const coinName = "koin kripto yang sedang Anda analisis";
-            const prompt = `Sebagai analis pasar kripto, berikan prediksi tren jangka pendek (misalnya, bullish, bearish, atau sideways) untuk ${coinName} dan berikan alasan hipotetis yang sangat sederhana. Ingat, ini hanya untuk tujuan edukasi dan bukan nasihat finansial.`;
+                const coinName = "koin kripto yang sedang Anda analisis";
+                const prompt = `Sebagai analis pasar kripto, berikan prediksi tren jangka pendek (misalnya, bullish, bearish, atau sideways) untuk ${coinName} dan berikan alasan hipotetis yang sangat sederhana. Ingat, ini hanya untuk tujuan edukasi dan bukan nasihat finansial.`;
 
-            const prediction = await callGeminiAPI(prompt);
-            trendPredictionContentDiv.innerHTML = prediction;
-            trendPredictionLoadingDiv.classList.add('hidden');
-            trendPredictionResultDiv.classList.remove('hidden');
-            trendPredictionResultDiv.className = "mt-4 p-4 bg-orange-50 rounded-lg text-orange-800";
-        });
+                const prediction = await callGeminiAPI(prompt);
+                if (trendPredictionContentDiv) trendPredictionContentDiv.innerHTML = prediction;
+                if (trendPredictionLoadingDiv) trendPredictionLoadingDiv.classList.add('hidden');
+                if (trendPredictionResultDiv) {
+                    trendPredictionResultDiv.classList.remove('hidden');
+                    trendPredictionResultDiv.className = "mt-4 p-4 bg-orange-50 rounded-lg text-orange-800";
+                }
+            });
+        }
     }
 
     function showPatternInsightModal(pattern, type) {
         const modal = document.getElementById('pattern-insight-modal');
-        document.getElementById('modal-pattern-name').textContent = pattern.name;
-        document.getElementById('modal-pattern-desc').textContent = pattern.desc;
-        
+        const modalPatternName = document.getElementById('modal-pattern-name');
+        const modalPatternDesc = document.getElementById('modal-pattern-desc');
         const illustrationContainer = document.getElementById('modal-pattern-illustration');
-        illustrationContainer.innerHTML = '';
-        if (type === 'candlestick' && pattern.illustration) {
-            illustrationContainer.innerHTML = generateCandlestickIllustration(pattern.illustration);
-        } else {
-            illustrationContainer.innerHTML = '<p class="text-gray-500 text-sm">Ilustrasi pola grafik tidak tersedia di sini.</p>';
+        const patternInsightResult = document.getElementById('pattern-insight-result');
+        const patternInsightLoading = document.getElementById('pattern-insight-loading');
+        const patternInsightContent = document.getElementById('pattern-insight-content');
+
+        if (modalPatternName) modalPatternName.textContent = pattern.name;
+        if (modalPatternDesc) modalPatternDesc.textContent = pattern.desc;
+        
+        if (illustrationContainer) {
+            illustrationContainer.innerHTML = '';
+            if (type === 'candlestick' && pattern.illustration) {
+                illustrationContainer.innerHTML = generateCandlestickIllustration(pattern.illustration);
+            } else {
+                illustrationContainer.innerHTML = '<p class="text-gray-500 text-sm">Ilustrasi pola grafik tidak tersedia di sini.</p>';
+            }
         }
 
-        document.getElementById('pattern-insight-result').classList.add('hidden');
-        document.getElementById('pattern-insight-loading').classList.add('hidden');
-        document.getElementById('pattern-insight-content').innerHTML = '';
+        if (patternInsightResult) patternInsightResult.classList.add('hidden');
+        if (patternInsightLoading) patternInsightLoading.classList.add('hidden');
+        if (patternInsightContent) patternInsightContent.innerHTML = '';
 
-        modal.style.display = 'flex';
+        if (modal) modal.style.display = 'flex';
     }
 
     // --- SIMULATION LOGIC ---
     function setupSimulation() {
         const simCoinSelect = document.getElementById('sim-coin-select');
         const allowedCoins = ['BTC', 'ETH', 'SOL', 'BNB', 'ADA'];
-        simCoinSelect.innerHTML = allowedCoins.map(key => 
-            `<option value="${key}" ${key === state.simulation.selectedSimCoin ? 'selected' : ''}>${appData.coins[key].name} (${key})</option>`
-        ).join('');
-        simCoinSelect.addEventListener('change', (e) => {
-            state.simulation.selectedSimCoin = e.target.value;
-            document.getElementById('sim-current-coin-display').textContent = e.target.value;
-            document.getElementById('sim-holding-coin-display').textContent = e.target.value;
-            document.getElementById('buy-coin-display').textContent = e.target.value;
-            document.getElementById('sell-coin-display').textContent = e.target.value;
-            resetSimulation();
-        });
+        if (simCoinSelect) { // Add null check
+            simCoinSelect.innerHTML = allowedCoins.map(key => 
+                `<option value="${key}" ${key === state.simulation.selectedSimCoin ? 'selected' : ''}>${appData.coins[key].name} (${key})</option>`
+            ).join('');
+            simCoinSelect.addEventListener('change', (e) => {
+                state.simulation.selectedSimCoin = e.target.value;
+                const simCurrentCoinDisplay = document.getElementById('sim-current-coin-display');
+                const simHoldingCoinDisplay = document.getElementById('sim-holding-coin-display');
+                const buyCoinDisplay = document.getElementById('buy-coin-display');
+                const sellCoinDisplay = document.getElementById('sell-coin-display');
 
-        document.getElementById('sim-start-sim-btn').addEventListener('click', startOverallSimulation);
-        document.getElementById('sim-reset-sim-btn').addEventListener('click', resetSimulation);
-        document.getElementById('buy-btn').addEventListener('click', buyCoin);
-        document.getElementById('sell-btn').addEventListener('click', sellCoin);
+                if (simCurrentCoinDisplay) simCurrentCoinDisplay.textContent = e.target.value;
+                if (simHoldingCoinDisplay) simHoldingCoinDisplay.textContent = e.target.value;
+                if (buyCoinDisplay) buyCoinDisplay.textContent = e.target.value;
+                if (sellCoinDisplay) sellCoinDisplay.textContent = e.target.value;
+                resetSimulation();
+            });
+        }
+
+        const simStartSimBtn = document.getElementById('sim-start-sim-btn');
+        if (simStartSimBtn) simStartSimBtn.addEventListener('click', startOverallSimulation);
+        
+        const simResetSimBtn = document.getElementById('sim-reset-sim-btn');
+        if (simResetSimBtn) simResetSimBtn.addEventListener('click', resetSimulation);
+        
+        const buyBtn = document.getElementById('buy-btn');
+        if (buyBtn) buyBtn.addEventListener('click', buyCoin);
+        
+        const sellBtn = document.getElementById('sell-btn');
+        if (sellBtn) sellBtn.addEventListener('click', sellCoin);
 
         // ApexCharts specific controls
-        document.getElementById("sim-timeframe").addEventListener("change", () => {
-            state.simulation.simTimeframeMilliseconds = parseInt(document.getElementById("sim-timeframe").value);
-            // Re-initialize chart with new timeframe and restart simulation
-            stopSimulationChart(); 
-            initializeSimChart();
-            startSimulationChart();
-        });
+        const simTimeframe = document.getElementById("sim-timeframe");
+        if (simTimeframe) { // Add null check
+            simTimeframe.addEventListener("change", () => {
+                state.simulation.simTimeframeMilliseconds = parseInt(simTimeframe.value);
+                // Re-initialize chart with new timeframe and restart simulation
+                stopSimulationChart(); 
+                initializeSimChart();
+                startSimulationChart();
+            });
+        }
 
-        document.getElementById("sim-chart-pauseBtn").addEventListener("click", pauseSim);
-        document.getElementById("sim-chart-resumeBtn").addEventListener("click", resumeSim);
+        const simChartPauseBtn = document.getElementById("sim-chart-pauseBtn");
+        if (simChartPauseBtn) simChartPauseBtn.addEventListener("click", pauseSim);
+        
+        const simChartResumeBtn = document.getElementById("sim-chart-resumeBtn");
+        if (simChartResumeBtn) simChartResumeBtn.addEventListener("click", resumeSim);
 
         // New AI feature buttons
-        document.getElementById('analyze-trade-btn').addEventListener('click', analyzeLastTrade);
-        document.getElementById('suggest-strategy-btn').addEventListener('click', suggestStrategy);
-        document.getElementById('evaluate-portfolio-btn').addEventListener('click', evaluatePortfolio);
+        const analyzeTradeBtn = document.getElementById('analyze-trade-btn');
+        if (analyzeTradeBtn) analyzeTradeBtn.addEventListener('click', analyzeLastTrade);
+        
+        const suggestStrategyBtn = document.getElementById('suggest-strategy-btn');
+        if (suggestStrategyBtn) suggestStrategyBtn.addEventListener('click', suggestStrategy);
+        
+        const evaluatePortfolioBtn = document.getElementById('evaluate-portfolio-btn');
+        if (evaluatePortfolioBtn) evaluatePortfolioBtn.addEventListener('click', evaluatePortfolio);
 
-        // Call updateSimulationUI only if elements are expected to be present, or add null checks within it.
-        // For initial load, it's safer to call it after the view is rendered.
-        // However, since it's called in init(), we need the null checks.
         updateSimulationUI();
         renderTransactionLog();
     }
@@ -1321,7 +1896,7 @@ window.onload = () => {
         const chartElement = document.getElementById('chart');
         const volumeChartElement = document.getElementById('volumeChart');
         if (!chartElement || !volumeChartElement) {
-            console.error("Error: Chart elements not found for ApexCharts initialization.");
+            console.error("Error: Chart elements not found for ApexCharts initialization. This might happen if the simulation section is not active.");
             // Do not call updateSimulationUI here if elements are null, as it will cause errors.
             return;
         }
@@ -1616,12 +2191,20 @@ window.onload = () => {
         state.simulation.newsImpact = 0; // Reset news impact
         state.simulation.transactions = [];
 
-        document.getElementById('sim-start-sim-btn').classList.add('hidden');
-        document.getElementById('sim-reset-sim-btn').classList.remove('hidden');
-        document.getElementById('sim-coin-select').disabled = true;
-        document.getElementById('sim-pnl-info').classList.add('hidden');
-        document.getElementById('newsBox').classList.remove('breaking');
-        document.getElementById('newsBox').textContent = "Tidak ada berita saat ini...";
+        const simStartSimBtn = document.getElementById('sim-start-sim-btn');
+        const simResetSimBtn = document.getElementById('sim-reset-sim-btn');
+        const simCoinSelect = document.getElementById('sim-coin-select');
+        const simPnlInfo = document.getElementById('sim-pnl-info');
+        const newsBox = document.getElementById('newsBox');
+
+        if (simStartSimBtn) simStartSimBtn.classList.add('hidden');
+        if (simResetSimBtn) simResetSimBtn.classList.remove('hidden');
+        if (simCoinSelect) simCoinSelect.disabled = true;
+        if (simPnlInfo) simPnlInfo.classList.add('hidden');
+        if (newsBox) {
+            newsBox.classList.remove('breaking');
+            newsBox.textContent = "Tidak ada berita saat ini...";
+        }
 
         initializeSimChart(); // Re-initialize charts to clear old data
         startSimulationChart();
@@ -1651,14 +2234,24 @@ window.onload = () => {
         state.simulation.candleData = [];
         state.simulation.volumeData = [];
 
-        document.getElementById('sim-start-sim-btn').classList.remove('hidden');
-        document.getElementById('sim-reset-sim-btn').classList.add('hidden');
-        document.getElementById('sim-coin-select').disabled = false;
-        document.getElementById('buy-amount').value = '';
-        document.getElementById('sell-amount').value = '';
-        document.getElementById('sim-pnl-info').classList.add('hidden');
-        document.getElementById('newsBox').classList.remove('breaking');
-        document.getElementById('newsBox').textContent = "Tidak ada berita saat ini...";
+        const simStartSimBtn = document.getElementById('sim-start-sim-btn');
+        const simResetSimBtn = document.getElementById('sim-reset-sim-btn');
+        const simCoinSelect = document.getElementById('sim-coin-select');
+        const buyAmountInput = document.getElementById('buy-amount');
+        const sellAmountInput = document.getElementById('sell-amount');
+        const simPnlInfo = document.getElementById('sim-pnl-info');
+        const newsBox = document.getElementById('newsBox');
+
+        if (simStartSimBtn) simStartSimBtn.classList.remove('hidden');
+        if (simResetSimBtn) simResetSimBtn.classList.add('hidden');
+        if (simCoinSelect) simCoinSelect.disabled = false;
+        if (buyAmountInput) buyAmountInput.value = '';
+        if (sellAmountInput) sellAmountInput.value = '';
+        if (simPnlInfo) simPnlInfo.classList.add('hidden');
+        if (newsBox) {
+            newsBox.classList.remove('breaking');
+            newsBox.textContent = "Tidak ada berita saat ini...";
+        }
 
         updateSimulationUI();
         renderTransactionLog();
@@ -1790,7 +2383,8 @@ window.onload = () => {
     }
 
     function buyCoin() {
-        const amountUSDT = parseFloat(document.getElementById('buy-amount').value);
+        const buyAmountInput = document.getElementById('buy-amount');
+        const amountUSDT = parseFloat(buyAmountInput ? buyAmountInput.value : 0);
         if (isNaN(amountUSDT) || amountUSDT <= 0) {
             showAlert("Masukkan jumlah USDT yang valid untuk dibeli.");
             return;
@@ -1828,13 +2422,14 @@ window.onload = () => {
             pnl_usd: '-'
         });
 
-        document.getElementById('buy-amount').value = '';
+        if (buyAmountInput) buyAmountInput.value = '';
         updateSimulationUI();
         renderTransactionLog();
     }
 
     function sellCoin() {
-        const amountCoin = parseFloat(document.getElementById('sell-amount').value);
+        const sellAmountInput = document.getElementById('sell-amount');
+        const amountCoin = parseFloat(sellAmountInput ? sellAmountInput.value : 0);
         const currentCoinHolding = state.simulation.coinHoldings[state.simulation.selectedSimCoin] || 0;
 
         if (isNaN(amountCoin) || amountCoin <= 0) {
@@ -1878,7 +2473,7 @@ window.onload = () => {
             pnl_usd: pnlUsd.toFixed(2)
         });
 
-        document.getElementById('sell-amount').value = '';
+        if (sellAmountInput) sellAmountInput.value = '';
         updateSimulationUI();
         renderTransactionLog();
     }
@@ -1920,15 +2515,17 @@ window.onload = () => {
         const tradeAnalysisContentDiv = document.getElementById('trade-analysis-content');
         const tradeAnalysisLoadingDiv = document.getElementById('trade-analysis-loading');
 
-        tradeAnalysisResultDiv.classList.add('hidden');
-        tradeAnalysisLoadingDiv.classList.remove('hidden');
-        tradeAnalysisContentDiv.innerHTML = '';
+        if (tradeAnalysisResultDiv) tradeAnalysisResultDiv.classList.add('hidden');
+        if (tradeAnalysisLoadingDiv) tradeAnalysisLoadingDiv.classList.remove('hidden');
+        if (tradeAnalysisContentDiv) tradeAnalysisContentDiv.innerHTML = '';
 
         if (state.simulation.transactions.length === 0) {
-            tradeAnalysisResultDiv.classList.remove('hidden');
-            tradeAnalysisResultDiv.className = "mt-4 p-4 bg-yellow-50 rounded-lg text-yellow-800";
-            tradeAnalysisContentDiv.innerHTML = "Belum ada transaksi untuk dianalisis.";
-            tradeAnalysisLoadingDiv.classList.add('hidden');
+            if (tradeAnalysisResultDiv) {
+                tradeAnalysisResultDiv.classList.remove('hidden');
+                tradeAnalysisResultDiv.className = "mt-4 p-4 bg-yellow-50 rounded-lg text-yellow-800";
+            }
+            if (tradeAnalysisContentDiv) tradeAnalysisContentDiv.innerHTML = "Belum ada transaksi untuk dianalisis.";
+            if (tradeAnalysisLoadingDiv) tradeAnalysisLoadingDiv.classList.add('hidden');
             return;
         }
 
@@ -1948,10 +2545,12 @@ window.onload = () => {
         prompt += `Apakah ini perdagangan yang baik atau buruk berdasarkan harga saat ini? Berikan alasan sederhana.`;
 
         const analysis = await callGeminiAPI(prompt);
-        tradeAnalysisContentDiv.innerHTML = analysis;
-        tradeAnalysisLoadingDiv.classList.add('hidden');
-        tradeAnalysisResultDiv.classList.remove('hidden');
-        tradeAnalysisResultDiv.className = "mt-4 p-4 bg-indigo-50 rounded-lg text-indigo-800";
+        if (tradeAnalysisContentDiv) tradeAnalysisContentDiv.innerHTML = analysis;
+        if (tradeAnalysisLoadingDiv) tradeAnalysisLoadingDiv.classList.add('hidden');
+        if (tradeAnalysisResultDiv) {
+            tradeAnalysisResultDiv.classList.remove('hidden');
+            tradeAnalysisResultDiv.className = "mt-4 p-4 bg-indigo-50 rounded-lg text-indigo-800";
+        }
     }
 
     async function suggestStrategy() {
@@ -1959,15 +2558,17 @@ window.onload = () => {
         const strategySuggestionContentDiv = document.getElementById('strategy-suggestion-content');
         const strategySuggestionLoadingDiv = document.getElementById('strategy-suggestion-loading');
 
-        strategySuggestionResultDiv.classList.add('hidden');
-        strategySuggestionLoadingDiv.classList.remove('hidden');
-        strategySuggestionContentDiv.innerHTML = '';
+        if (strategySuggestionResultDiv) strategySuggestionResultDiv.classList.add('hidden');
+        if (strategySuggestionLoadingDiv) strategySuggestionLoadingDiv.classList.remove('hidden');
+        if (strategySuggestionContentDiv) strategySuggestionContentDiv.innerHTML = '';
 
         if (state.simulation.candleData.length < 10) {
-            strategySuggestionResultDiv.classList.remove('hidden');
-            strategySuggestionResultDiv.className = "mt-4 p-4 bg-yellow-50 rounded-lg text-yellow-800";
-            strategySuggestionContentDiv.innerHTML = "Dibutuhkan lebih banyak data grafik untuk menyarankan strategi. Biarkan simulasi berjalan sebentar.";
-            strategySuggestionLoadingDiv.classList.add('hidden');
+            if (strategySuggestionResultDiv) {
+                strategySuggestionResultDiv.classList.remove('hidden');
+                strategySuggestionResultDiv.className = "mt-4 p-4 bg-yellow-50 rounded-lg text-yellow-800";
+            }
+            if (strategySuggestionContentDiv) strategySuggestionContentDiv.innerHTML = "Dibutuhkan lebih banyak data grafik untuk menyarankan strategi. Biarkan simulasi berjalan sebentar.";
+            if (strategySuggestionLoadingDiv) strategySuggestionLoadingDiv.classList.add('hidden');
             return;
         }
 
@@ -1993,10 +2594,12 @@ window.onload = () => {
         const prompt = `Berdasarkan kondisi pasar simulasi saat ini di mana harga ${state.simulation.selectedSimCoin} menunjukkan tren ${trend} dan volatilitas ${volatility}, berikan saran strategi trading umum (misalnya, strategi mengikuti tren, strategi range-bound, atau strategi breakout) yang cocok untuk pemula. Jelaskan alasannya secara singkat.`;
 
         const suggestion = await callGeminiAPI(prompt);
-        strategySuggestionContentDiv.innerHTML = suggestion;
-        strategySuggestionLoadingDiv.classList.add('hidden');
-        strategySuggestionResultDiv.classList.remove('hidden');
-        strategySuggestionResultDiv.className = "mt-4 p-4 bg-green-50 rounded-lg text-green-800";
+        if (strategySuggestionContentDiv) strategySuggestionContentDiv.innerHTML = suggestion;
+        if (strategySuggestionLoadingDiv) strategySuggestionLoadingDiv.classList.add('hidden');
+        if (strategySuggestionResultDiv) {
+            strategySuggestionResultDiv.classList.remove('hidden');
+            strategySuggestionResultDiv.className = "mt-4 p-4 bg-green-50 rounded-lg text-green-800";
+        }
     }
 
     async function evaluatePortfolio() {
@@ -2004,9 +2607,9 @@ window.onload = () => {
         const portfolioEvaluationContentDiv = document.getElementById('portfolio-evaluation-content');
         const portfolioEvaluationLoadingDiv = document.getElementById('portfolio-evaluation-loading');
 
-        portfolioEvaluationResultDiv.classList.add('hidden');
-        portfolioEvaluationLoadingDiv.classList.remove('hidden');
-        portfolioEvaluationContentDiv.innerHTML = '';
+        if (portfolioEvaluationResultDiv) portfolioEvaluationResultDiv.classList.add('hidden');
+        if (portfolioEvaluationLoadingDiv) portfolioEvaluationLoadingDiv.classList.remove('hidden');
+        if (portfolioEvaluationContentDiv) portfolioEvaluationContentDiv.innerHTML = '';
 
         const currentCoinHolding = state.simulation.coinHoldings[state.simulation.selectedSimCoin] || 0;
         const totalValue = state.simulation.balance + currentCoinHolding * state.simulation.currentPrice;
@@ -2035,11 +2638,85 @@ window.onload = () => {
         prompt += `Berikan saran singkat untuk meningkatkan kinerja atau mengelola risiko.`;
 
         const evaluation = await callGeminiAPI(prompt);
-        portfolioEvaluationContentDiv.innerHTML = evaluation;
-        portfolioEvaluationLoadingDiv.classList.add('hidden');
-        portfolioEvaluationResultDiv.classList.remove('hidden');
-        portfolioEvaluationResultDiv.className = "mt-4 p-4 bg-purple-50 rounded-lg text-purple-800";
+        if (portfolioEvaluationContentDiv) portfolioEvaluationContentDiv.innerHTML = evaluation;
+        if (portfolioEvaluationLoadingDiv) portfolioEvaluationLoadingDiv.classList.add('hidden');
+        if (portfolioEvaluationResultDiv) {
+            portfolioEvaluationResultDiv.classList.remove('hidden');
+            portfolioEvaluationResultDiv.className = "mt-4 p-4 bg-purple-50 rounded-lg text-purple-800";
+        }
     }
+
+    // --- NEW QUIZ LOGIC FOR SIMULATION SECTION ---
+    function setupSimulationQuiz() {
+        document.querySelectorAll('.quiz-answer-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const answer = e.target.dataset.answer;
+                const parentDiv = e.target.closest('.p-4'); // Get the parent quiz div
+                const feedbackDivId = parentDiv.querySelector('div[id^="quiz-feedback-"]').id;
+                const feedbackDiv = document.getElementById(feedbackDivId);
+
+                let isCorrect = false;
+                let message = "";
+
+                if (feedbackDivId === 'quiz-feedback-sr') {
+                    if (answer === 'resistance') {
+                        isCorrect = true;
+                        message = "Benar! Garis putus-putus menunjukkan level Resistance, di mana harga cenderung sulit menembus ke atas.";
+                    } else {
+                        message = "Salah. Garis ini menunjukkan Resistance, area di mana tekanan jual kuat menghambat kenaikan harga.";
+                    }
+                } else if (feedbackDivId === 'quiz-feedback-breakout') {
+                    if (answer === 'yes') {
+                        isCorrect = true;
+                        message = "Benar! Lilin bullish besar yang menembus level resistance menandakan potensi breakout yang kuat.";
+                    } else {
+                        message = "Salah. Lilin bullish yang kuat menembus resistance seringkali menjadi sinyal breakout.";
+                    }
+                }
+
+                if (feedbackDiv) { // Add null check
+                    feedbackDiv.classList.remove('hidden', 'bg-green-50', 'bg-red-50', 'text-green-800', 'text-red-800');
+                    feedbackDiv.classList.add(isCorrect ? 'bg-green-50' : 'bg-red-50', isCorrect ? 'text-green-800' : 'text-red-800');
+                    feedbackDiv.innerHTML = message;
+                }
+            });
+        });
+    }
+
+    // --- NEW COIN CHECKLIST LOGIC ---
+    function setupCoinChecklist() {
+        const form = document.getElementById('coin-checklist-form');
+        const feedbackDiv = document.getElementById('checklist-feedback');
+
+        if (form) { // Add null check
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const checkboxes = form.querySelectorAll('input[name="criteria"]:checked');
+                let checkedCount = checkboxes.length;
+
+                let message = "";
+                let className = "mt-4 p-4 rounded-lg ";
+
+                if (checkedCount === 5) {
+                    message = "Luar biasa! Anda telah mempertimbangkan semua faktor penting dalam memilih koin. Ini adalah pendekatan yang sangat baik untuk analisis fundamental.";
+                    className += "bg-green-50 text-green-800";
+                } else if (checkedCount >= 3) {
+                    message = `Bagus! Anda telah mempertimbangkan ${checkedCount} dari 5 faktor penting. Terus tingkatkan riset Anda!`;
+                    className += "bg-yellow-50 text-yellow-800";
+                } else {
+                    message = `Anda baru mempertimbangkan ${checkedCount} dari 5 faktor. Ingat, analisis fundamental yang kuat membutuhkan riset menyeluruh pada semua aspek proyek.`;
+                    className += "bg-red-50 text-red-800";
+                }
+
+                if (feedbackDiv) { // Add null check
+                    feedbackDiv.className = className;
+                    feedbackDiv.innerHTML = message;
+                    feedbackDiv.classList.remove('hidden');
+                }
+            });
+        }
+    }
+
 
     init();
 };
