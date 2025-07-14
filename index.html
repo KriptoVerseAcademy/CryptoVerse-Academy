@@ -5,24 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panduan Trading Kripto Interaktif</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- ApexCharts for interactive candlestick simulation -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: Aplikasi ini dirancang sebagai SPA (Single-Page Application) dengan navigasi sidebar tetap dan area konten dinamis. Struktur ini mengubah laporan linear menjadi alat pembelajaran modular yang berpusat pada tugas. Daripada menggulir dokumen yang panjang, pengguna dapat dengan bebas melompat antara 'Dasar Kripto' untuk teori, 'Arena Analisis' untuk praktik langsung dengan grafik, 'Pustaka Pola' sebagai referensi visual, dan 'Perisai Trader' untuk manajemen risiko. Pendekatan ini jauh lebih menarik dan tidak terlalu mengintimidasi bagi audiens pemula (usia 14 tahun), mendorong eksplorasi aktif daripada konsumsi pasif dan menjadikan 'Arena Analisis' sebagai pusat pengalaman belajar. -->
-    <!-- Visualization & Content Choices: 
-        - [Laporan: Analisis Teknis] -> [Goal: Pembelajaran Praktis] -> [Viz: Grafik Interaktif] -> [Interaction: Pilih koin, aktifkan/nonaktifkan indikator (MA, RSI, MACD, BB)] -> [Justification: Memberi pengguna pengalaman langsung dalam menerapkan konsep TA, yang jauh lebih efektif daripada hanya membaca deskripsi.] -> [Library: Chart.js]
-        - [Laporan: Pola Candlestick/Grafik] -> [Goal: Referensi Cepat] -> [Viz: Kartu Visual] -> [Interaction: Klik kartu untuk melihat detail dan ilustrasi HTML/CSS] -> [Justification: Mengubah tabel statis menjadi panduan visual yang menarik dan mudah dicerna.] -> [Library: HTML/CSS/JS]
-        - [Laporan: Manajemen Risiko] -> [Goal: Alat Praktis] -> [Viz: Kalkulator] -> [Interaction: Input pengguna untuk menghitung Rasio Risiko-Imbalan & Ukuran Posisi secara real-time] -> [Justification: Menerjemahkan konsep abstrak menjadi alat yang dapat ditindaklanjuti dan dapat digunakan pengguna untuk merencanakan perdagangan simulasi mereka.] -> [Library: JS]
-        - [Baru: Ide Trading LLM] -> [Goal: Contoh Aplikasi TA] -> [Viz: Teks Dinamis] -> [Interaction: Tombol klik untuk menghasilkan ide trading hipotetis] -> [Justification: Memberikan contoh praktis bagaimana analisis teknis dapat digunakan untuk merumuskan ide trading, dengan penjelasan dari AI.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Insight Pola LLM] -> [Goal: Pemahaman Pola Mendalam] -> [Viz: Teks Dinamis] -> [Interaction: Tombol klik untuk mendapatkan skenario trading berbasis pola] -> [Justification: Mengkontekstualisasikan pola grafik dan candlestick dalam skenario trading nyata, membantu pemahaman dan retensi.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Analisis Sentimen Pasar LLM] -> [Goal: Wawasan Pasar Sederhana] -> [Viz: Teks Dinamis] -> [Interaction: Tombol klik untuk mendapatkan sentimen pasar hipotetis untuk koin yang dipilih] -> [Justification: Memperkenalkan konsep sentimen pasar dan analisis fundamental secara sederhana, melengkapi analisis teknis.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Tanya Ahli AI LLM] -> [Goal: Klarifikasi Konsep Dasar] -> [Viz: Teks Dinamis] -> [Interaction: Input teks dan tombol untuk mengajukan pertanyaan dan mendapatkan penjelasan] -> [Justification: Memberikan bantuan kontekstual dan personal untuk memahami istilah atau konsep dasar trading, sangat berguna untuk pemula.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Simulasi Skenario Perdagangan LLM] -> [Goal: Latihan Pengambilan Keputusan] -> [Viz: Teks Dinamis] -> [Interaction: Input teks skenario dan tombol untuk mendapatkan respons AI] -> [Justification: Memungkinkan pengguna untuk berlatih berpikir kritis dalam berbagai kondisi pasar hipotetis, mengintegrasikan TA dan manajemen risiko.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Ringkasan Berita Kripto (Hipotetis) LLM] -> [Goal: Memahami Dampak Fundamental] -> [Viz: Teks Dinamis] -> [Interaction: Tombol klik untuk mendapatkan ringkasan berita hipotetis dan dampaknya] -> [Justification: Memperkenalkan konsep analisis fundamental dan bagaimana berita dapat memengaruhi harga, bahkan dalam lingkungan simulasi.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Penjelasan Jargon Kripto LLM] -> [Goal: Klarifikasi Istilah] -> [Viz: Teks Dinamis] -> [Interaction: Input teks jargon dan tombol untuk mendapatkan penjelasan] -> [Justification: Membantu pemula memahami istilah-istilah kompleks di dunia kripto dengan cepat dan mudah.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Prediksi Tren Jangka Pendek (Hipotetis) LLM] -> [Goal: Pemahaman Prediksi Pasar] -> [Viz: Teks Dinamis] -> [Interaction: Tombol klik untuk mendapatkan prediksi tren hipotetis] -> [Justification: Mengajarkan konsep prediksi tren dan faktor-faktor yang mempengaruhinya, tanpa memberikan nasihat finansial nyata.] -> [Library: Gemini API (gemini-2.0-flash)]
-        - [Baru: Simulasi Trading Interaktif] -> [Goal: Pengalaman Trading Praktis] -> [Viz: Grafik Harga Dinamis, Antarmuka Beli/Jual, Saldo] -> [Interaction: Beli/Jual, Memicu Berita, Reset] -> [Justification: Memberikan pengalaman langsung dalam mengelola perdagangan di tengah volatilitas pasar yang disimulasikan, termasuk reaksi terhadap berita mendadak.] -> [Library: HTML/CSS/JS, Chart.js]
-        -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             background-color: #FDFDFD;
@@ -164,6 +149,33 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* Styles for the new simulation chart and news box */
+        #sim-chart-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        #newsBox {
+            background: #f1f5f9; /* Light background for news box */
+            color: #1e293b; /* Dark text for news box */
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 10px auto;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        #newsBox.breaking {
+            background-color: #dc2626; /* Red for breaking news */
+            color: white;
+            animation: pulse 1s infinite;
+            font-weight: bold;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -191,7 +203,6 @@
                 <a href="#pustaka" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
                     <span class="mr-3">📚</span> Pustaka Pola
                 </a>
-                <!-- Removed "Strategi Koin" link as requested -->
                 <a href="#perisai" class="nav-item flex items-center px-4 py-3 my-1 rounded-lg transition-colors duration-200">
                     <span class="mr-3">🛡️</span> Perisai Trader
                 </a>
@@ -274,32 +285,30 @@
             <!-- Arena Analisis Section -->
             <section id="arena" class="view hidden">
                  <h2 class="text-3xl font-bold mb-2">Arena Analisis</h2>
-                 <p class="text-gray-600 mb-6">Pilih koin dan terapkan indikator teknis untuk menganalisis pergerakan harga secara langsung.</p>
+                 <p class="text-gray-600 mb-6">Gunakan widget TradingView interaktif di bawah ini untuk menganalisis pergerakan harga secara langsung.</p>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <div class="flex flex-wrap items-center gap-4 mb-6">
-                        <div>
-                            <label for="coin-select" class="block text-sm font-medium text-gray-700 mb-1">Pilih Koin:</label>
-                            <select id="coin-select" class="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></select>
-                        </div>
-                        <div class="flex-grow">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Indikator:</label>
-                            <div class="flex flex-wrap gap-x-4 gap-y-2" id="indicator-toggles"></div>
-                        </div>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div id="tradingview_chart"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                        new TradingView.widget({
+                            "width": "100%", // Make it responsive
+                            "height": 500, // Adjust height as needed
+                            "symbol": "BINANCE:SOLUSDT", // Default symbol, can be changed dynamically if needed
+                            "interval": "1",
+                            "timezone": "Etc/UTC",
+                            "theme": "light",
+                            "style": "1",
+                            "locale": "en",
+                            "enable_publishing": false,
+                            "hide_top_toolbar": false, // Keep toolbar for more features
+                            "container_id": "tradingview_chart"
+                        });
+                        </script>
                     </div>
-                    
-                    <div id="info-box-container" class="mb-4 space-y-2"></div>
-
-                    <!-- Candlestick Example for Arena Analysis -->
-                    <div class="flex justify-center items-center h-12 mb-4">
-                        <span class="text-sm text-gray-600 mr-2">Contoh Candlestick:</span>
-                        <div id="arena-candlestick-examples" class="flex items-end h-12"></div>
-                    </div>
-
-                    <div class="chart-container">
-                        <canvas id="priceChart"></canvas>
-                    </div>
-                    <div id="indicator-charts-container" class="mt-4 space-y-4"></div>
+                    <!-- TradingView Widget END -->
 
                     <div class="mt-8 pt-6 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -385,10 +394,11 @@
                             <select id="sim-coin-select" class="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></select>
                         </div>
                         <div class="flex gap-2">
-                            <button id="start-sim-btn" class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                            <!-- Overall Start/Reset buttons -->
+                            <button id="sim-start-sim-btn" class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
                                 Mulai Simulasi
                             </button>
-                            <button id="reset-sim-btn" class="bg-red-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-red-700 transition-colors hidden">
+                            <button id="sim-reset-sim-btn" class="bg-red-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-red-700 transition-colors hidden">
                                 Reset Simulasi
                             </button>
                         </div>
@@ -420,8 +430,32 @@
                         <div id="sim-candlestick-examples" class="flex items-end h-12"></div>
                     </div>
 
-                    <div id="sim-chart-container" class="chart-container mb-6">
-                        <canvas id="simPriceChart"></canvas>
+                    <!-- ApexCharts Simulation Chart & Controls -->
+                    <div id="sim-chart-container" class="w-full border border-gray-200 rounded-lg shadow-sm">
+                        <div class="flex flex-col sm:flex-row gap-4 mb-4 items-center justify-center p-4">
+                            <label for="sim-timeframe" class="block text-sm font-medium text-gray-700">Timeframe:</label>
+                            <select id="sim-timeframe" class="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                <option value="1000">1 Detik</option>
+                                <option value="3000">3 Detik</option>
+                                <option value="5000">5 Detik</option>
+                                <option value="10000">10 Detik</option>
+                                <option value="60000">1 Menit</option>
+                                <option value="300000">5 Menit</option>
+                                <option value="900000">15 Menit</option>
+                                <option value="1800000">30 Menit</option>
+                                <option value="3600000">1 Jam</option>
+                                <option value="86400000">1 Hari</option>
+                            </select>
+                            <button id="sim-chart-pauseBtn" class="bg-amber-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-amber-700 transition-colors">⏸️ Pause</button>
+                            <button id="sim-chart-resumeBtn" class="bg-emerald-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-emerald-700 transition-colors">▶️ Resume</button>
+                        </div>
+                        <div id="chart" style="height: 350px;"></div>
+                        <div id="volumeChart" style="height: 150px;"></div>
+                        <div id="chart-info" class="text-center mt-2 mb-4">
+                            <span id="price" class="font-semibold text-lg">Harga: $0.00</span>
+                            <span id="change" class="ml-4 font-semibold text-lg">Change: 0%</span>
+                            <span id="direction" class="ml-2 text-xl">⬍</span>
+                        </div>
                     </div>
 
                     <div id="sim-trade-actions" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -445,8 +479,72 @@
                         </div>
                     </div>
 
-                    <div id="sim-event-message" class="mt-6 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center font-semibold hidden">
-                        <!-- Event messages will appear here -->
+                    <!-- New AI-powered features for Simulation -->
+                    <div class="mt-8 pt-6 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">✨ Analisis Perdagangan AI</h3>
+                            <p class="text-gray-600 mb-4">Dapatkan analisis AI singkat tentang transaksi terakhir Anda.</p>
+                            <button id="analyze-trade-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition-colors flex items-center justify-center w-full">
+                                ✨ Analisis Perdagangan
+                            </button>
+                            <div id="trade-analysis-result" class="mt-4 p-4 bg-indigo-50 rounded-lg text-indigo-800 hidden">
+                                <p class="font-semibold mb-2">Analisis AI:</p>
+                                <div id="trade-analysis-content" class="text-sm"></div>
+                            </div>
+                            <div id="trade-analysis-loading" class="mt-4 text-center text-indigo-600 hidden">AI sedang menganalisis...</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">✨ Saran Strategi AI</h3>
+                            <p class="text-gray-600 mb-4">Dapatkan saran strategi trading umum berdasarkan kondisi pasar simulasi saat ini.</p>
+                            <button id="suggest-strategy-btn" class="bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition-colors flex items-center justify-center w-full">
+                                ✨ Saran Strategi
+                            </button>
+                            <div id="strategy-suggestion-result" class="mt-4 p-4 bg-green-50 rounded-lg text-green-800 hidden">
+                                <p class="font-semibold mb-2">Saran AI:</p>
+                                <div id="strategy-suggestion-content" class="text-sm"></div>
+                            </div>
+                            <div id="strategy-suggestion-loading" class="mt-4 text-center text-green-600 hidden">AI sedang menyarankan...</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-xl font-bold mb-4">✨ Evaluasi Portofolio AI</h3>
+                        <p class="text-gray-600 mb-4">Dapatkan evaluasi kinerja portofolio Anda dari AI.</p>
+                        <button id="evaluate-portfolio-btn" class="bg-purple-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors flex items-center justify-center w-full">
+                            ✨ Evaluasi Portofolio
+                        </button>
+                        <div id="portfolio-evaluation-result" class="mt-4 p-4 bg-purple-50 rounded-lg text-purple-800 hidden">
+                            <p class="font-semibold mb-2">Evaluasi AI:</p>
+                            <div id="portfolio-evaluation-content" class="text-sm"></div>
+                        </div>
+                        <div id="portfolio-evaluation-loading" class="mt-4 text-center text-purple-600 hidden">AI sedang mengevaluasi...</div>
+                    </div>
+
+                    <div id="news" class="mt-6">
+                        <h3 class="text-xl font-bold mb-2">📰 Berita Pasar</h3>
+                        <div id="newsBox" class="p-4 text-center">Tidak ada berita saat ini...</div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-xl font-bold mb-4">Log Transaksi</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-gray-500">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">Waktu</th>
+                                        <th scope="col" class="px-6 py-3">Koin</th>
+                                        <th scope="col" class="px-6 py-3">Aksi</th>
+                                        <th scope="col" class="px-6 py-3">Jumlah</th>
+                                        <th scope="col" class="px-6 py-3">Harga</th>
+                                        <th scope="col" class="px-6 py-3">Total USDT</th>
+                                        <th scope="col" class="px-6 py-3">P/L (%)</th>
+                                        <th scope="col" class="px-6 py-3">P/L ($)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transaction-log-body">
+                                    <!-- Transaction rows will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -579,61 +677,7 @@
     </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Custom Chart.js Candlestick Plugin
-    const candlestickPlugin = {
-        id: 'candlestick',
-        beforeDatasetsDraw(chart, args, pluginOptions) {
-            const { ctx, chartArea: { top, bottom, left, right, width, height }, scales: { x, y } } = chart;
-            ctx.save();
-
-            const dataset = chart.data.datasets[0];
-            const data = dataset.data; // Get the actual data array
-
-            if (!data || data.length === 0 || width === 0 || height === 0) {
-                // console.warn("Candlestick plugin: No data or chart area is zero dimension. Skipping draw.");
-                ctx.restore();
-                return; // Skip drawing if no data or chart area is invalid
-            }
-
-            // Calculate bar width dynamically based on chart width and number of data points
-            // Ensure data.length is not zero to prevent division by zero
-            const barWidth = Math.max(1, (width / data.length) * 0.7); 
-
-            data.forEach((ohlc, index) => {
-                if (!ohlc || typeof ohlc.o === 'undefined') return; // Ensure OHLC data exists
-
-                const xCoord = x.getPixelForValue(index); 
-                const openPrice = y.getPixelForValue(ohlc.o);
-                const highPrice = y.getPixelForValue(ohlc.h);
-                const lowPrice = y.getPixelForValue(ohlc.l);
-                const closePrice = y.getPixelForValue(ohlc.c);
-
-                // Determine color
-                const isBullish = ohlc.c >= ohlc.o;
-                ctx.strokeStyle = isBullish ? '#22C55E' : '#EF4444'; // Green for bullish, Red for bearish
-                ctx.fillStyle = isBullish ? '#22C55E' : '#EF4444';
-
-                // Draw wick
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(xCoord, highPrice);
-                ctx.lineTo(xCoord, lowPrice);
-                ctx.stroke();
-
-                // Draw body
-                const bodyTop = isBullish ? closePrice : openPrice;
-                const bodyBottom = isBullish ? openPrice : closePrice;
-                const bodyHeight = Math.max(1, bodyBottom - bodyTop); // Ensure minimum height for visibility
-                ctx.fillRect(xCoord - barWidth / 2, bodyTop, barWidth, bodyHeight);
-            });
-            ctx.restore();
-        }
-    };
-
-    // Register the plugin
-    Chart.register(candlestickPlugin);
+window.onload = () => {
 
     // Custom Alert Function
     function showAlert(message) {
@@ -647,10 +691,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const closeAlert = () => {
             modal.style.display = 'none';
-            // Remove event listeners to prevent memory leaks and duplicate calls
             closeButton.removeEventListener('click', closeAlert);
             okButton.removeEventListener('click', closeAlert);
-            modal.removeEventListener('click', handleModalClick); // Remove specific handler for modal background
+            modal.removeEventListener('click', handleModalClick);
         };
 
         const handleModalClick = (event) => {
@@ -661,9 +704,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         closeButton.addEventListener('click', closeAlert);
         okButton.addEventListener('click', closeAlert);
-        modal.addEventListener('click', handleModalClick); // Add handler for clicking outside modal
+        modal.addEventListener('click', handleModalClick);
     }
-
 
     // --- DATA STORE ---
     const appData = {
@@ -688,22 +730,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 `
             }
         ],
-        // Updated coins for public consumption
         coins: {
             USDT: { name: 'Tether', type: 'Stablecoin' },
-            BTC: { name: 'Bitcoin', type: 'Aset Inti' },
-            ETH: { name: 'Ethereum', type: 'Aset Inti/Platform' },
-            SOL: { name: 'Solana', type: 'Aset Inti/L1' },
-            XRP: { name: 'XRP', type: 'Transfer Lintas Batas' },
-            ADA: { name: 'Cardano', type: 'Aset Inti/L1' },
-            DOGE: { name: 'Dogecoin', type: 'Meme Coin' },
-            MATIC: { name: 'Polygon', type: 'Utilitas/L2' },
-            BNB: { name: 'BNB', type: 'Utilitas/Bursa' },
-            ARB: { name: 'Arbitrum', type: 'Utilitas/L2' },
-            DOT: { name: 'Polkadot', type: 'Interoperabilitas' },
-            AVAX: { name: 'Avalanche', type: 'Aset Inti/L1' },
-            LINK: { name: 'Chainlink', type: 'Oracle' },
-            PEPE: { name: 'Pepe', type: 'Meme Coin' }, // Kept as a popular meme coin example
+            BTC: { name: 'Bitcoin', type: 'Aset Inti', initialPrice: 60000 },
+            ETH: { name: 'Ethereum', type: 'Aset Inti/Platform', initialPrice: 3000 },
+            SOL: { name: 'Solana', type: 'Aset Inti/L1', initialPrice: 150 },
+            BNB: { name: 'BNB', type: 'Utilitas/Bursa', initialPrice: 500 },
+            ADA: { name: 'Cardano', type: 'Aset Inti/L1', initialPrice: 0.5 },
         },
         indicators: {
             ma50: { name: 'MA 50', type: 'overlay', color: 'rgba(255, 159, 64, 1)' },
@@ -728,7 +761,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Ascending Triangle", type: "Kelanjutan Bullish", desc: "Terbentuk dengan resistance datar dan support yang menanjak. Menunjukkan akumulasi oleh pembeli." },
             { name: "Descending Triangle", type: "Kelanjutan Bearish", desc: "Terbentuk dengan support datar dan resistance yang menurun. Menunjukkan tekanan jual yang meningkat." },
         ],
-        // Removed coinStrategies as requested
         psychology: [
             {
                 name: "FOMO (Fear Of Missing Out)",
@@ -745,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 name: "Panik",
                 emoji: "😰",
-                desc: "Menjual aset secara membabi buta saat pasar turun karena ketakutan ekstrem akan kerugian yang lebih besar.",
+                desc: "Menjual aset secara membabi bluta saat pasar turun karena ketakutan ekstrem akan kerugian yang lebih besar.",
                 solution: "Gunakan stop-loss. Stop-loss adalah keputusan logis yang Anda buat saat pikiran jernih. Percayalah pada analisis Anda, bukan emosi sesaat."
             }
         ],
@@ -769,21 +801,29 @@ document.addEventListener('DOMContentLoaded', () => {
             coinHoldings: {}, // e.g., { BTC: 0.5 }
             currentPrice: 0,
             selectedSimCoin: 'BTC',
-            priceHistory: [], // Stores OHLC objects
-            simChartInstance: null,
+            candleData: [], // Stores OHLC objects for ApexCharts {x: timestamp, y: [O, H, L, C]}
+            volumeData: [], // Stores volume data for ApexCharts {x: timestamp, y: V}
+            simChartInstance: null, // ApexCharts main instance
+            simVolumeChartInstance: null, // ApexCharts volume instance
+            simLastTime: Date.now(), // For ApexCharts time (milliseconds)
+            simTimeframeMilliseconds: 60000, // Default 1 minute (1 candle = 1 minute) in milliseconds
             priceInterval: null,
-            eventInterval: null,
-            eventActive: false,
-            eventMagnitude: 0,
-            eventDuration: 0,
-            eventMessage: '',
-            eventTimer: null,
-            initialBuyPrice: 0 // To track PnL
+            newsInterval: null,
+            newsImpact: 0,
+            newsIndex: 0,
+            breakingTimeout: null,
+            initialBuyPrice: 0, // To track PnL
+            transactions: [], // New: Array to store transaction logs
+            newsList: [
+                { text: "🚀 Binance umumkan token baru, volume naik tajam!", impact: 2 },
+                { text: "⚠️ SEC investigasi proyek crypto besar! Pasar panik!", impact: -3 },
+                { text: "📉 Bitcoin anjlok 7% dalam 1 jam setelah tweet Elon Musk", impact: -2 },
+                { text: "📢 Ethereum 2.0 resmi dirilis, sentimen positif kuat!", impact: 1.5 },
+                { text: "💼 Investor institusi masuk ke Solana, harga melonjak.", impact: 2 }
+            ]
         }
     };
     
-    let chartInstances = {};
-
     // --- RENDERING FUNCTIONS ---
     function render() {
         // Update view visibility
@@ -796,73 +836,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.toggle('active', nav.hash === `#${state.activeView}`);
         });
 
-        if (state.activeView === 'arena') {
-            updateCharts();
-        } else if (state.activeView === 'simulasi') {
+        if (state.activeView === 'simulasi') {
             updateSimulationUI();
-            // If navigating to simulation and it's not active, ensure chart is ready to be started
-            if (!state.simulation.active && !state.simulation.simChartInstance) {
-                // Initialize a blank chart with a single candlestick for visual placeholder
-                const ctx = document.getElementById('simPriceChart').getContext('2d');
-                if (state.simulation.simChartInstance) {
-                    state.simulation.simChartInstance.destroy();
-                }
-                const initialOHLC = {
-                    x: Date.now(),
-                    o: 40000, // Example initial price
-                    h: 40100,
-                    l: 39900,
-                    c: 40050
-                };
-                state.simulation.priceHistory = [initialOHLC]; // Add one initial data point
-
-                state.simulation.simChartInstance = new Chart(ctx, {
-                    type: 'bar', // Use bar type and let plugin draw candlesticks
-                    data: {
-                        labels: [new Date(initialOHLC.x).toLocaleTimeString()],
-                        datasets: [{
-                            label: `Harga ${state.simulation.selectedSimCoin}`,
-                            data: [initialOHLC], // Pass OHLC objects
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            x: { 
-                                type: 'category', 
-                                labels: [], // Labels will be populated dynamically by updateSimPrice
-                                display: true 
-                            },
-                            y: { ticks: { font: { size: 10 } } }
-                        },
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: { 
-                                mode: 'index', 
-                                intersect: false,
-                                callbacks: {
-                                    label: function(context) {
-                                        const ohlc = context.dataset.data[context.dataIndex];
-                                        if (ohlc && typeof ohlc.o !== 'undefined') {
-                                            return [
-                                                `Open: ${ohlc.o.toFixed(2)}`,
-                                                `High: ${ohlc.h.toFixed(2)}`,
-                                                `Low: ${ohlc.l.toFixed(2)}`,
-                                                `Close: ${ohlc.c.toFixed(2)}`
-                                            ];
-                                        }
-                                        return context.dataset.label + ': ' + context.parsed.y.toFixed(2);
-                                    }
-                                }
-                            }
-                        },
-                        plugins: [candlestickPlugin]
-                    }
-                });
-                state.simulation.currentPrice = initialOHLC.c; // Set current price for display
-                updateSimulationUI(); // Update UI with initial price
+            // If navigating to simulation and chart is not initialized, initialize it
+            if (!state.simulation.simChartInstance) {
+                initializeSimChart();
             }
+        } else {
+            // Stop simulation intervals if leaving the simulation view
+            stopSimulationChart();
+            stopNewsGeneration(); // Stop news generation when leaving simulation
         }
     }
 
@@ -870,9 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial setup functions
         setupNavigation();
         populateDasarContent();
-        populateArenaControls();
         populatePatternLibraries();
-        // populateCoinStrategies(); // Removed as requested
         populatePsychologyContent();
         setupRiskCalculators();
         setupGeminiFeatures(); // New function for Gemini features
@@ -910,32 +891,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="text-gray-700 leading-relaxed">${item.content}</p>
             </div>
         `).join('');
-    }
-
-    function populateArenaControls() {
-        const coinSelect = document.getElementById('coin-select');
-        coinSelect.innerHTML = Object.keys(appData.coins).map(key => 
-            `<option value="${key}" ${key === state.activeCoin ? 'selected' : ''}>${appData.coins[key].name} (${key})</option>`
-        ).join('');
-        coinSelect.addEventListener('change', (e) => {
-            state.activeCoin = e.target.value;
-            updateCharts();
-        });
-
-        const indicatorToggles = document.getElementById('indicator-toggles');
-        indicatorToggles.innerHTML = Object.keys(appData.indicators).map(key => `
-            <label for="toggle-${key}" class="flex items-center space-x-2 cursor-pointer">
-                <input type="checkbox" id="toggle-${key}" data-indicator="${key}" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500">
-                <span class="text-sm font-medium text-gray-700">${appData.indicators[key].name}</span>
-            </label>
-        `).join('');
-        indicatorToggles.addEventListener('change', (e) => {
-            if(e.target.type === 'checkbox') {
-                const indicatorKey = e.target.dataset.indicator;
-                state.activeIndicators[indicatorKey] = e.target.checked;
-                updateCharts();
-            }
-        });
     }
     
     function populatePatternLibraries() {
@@ -1008,13 +963,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to insert candlestick examples into their respective containers
     function insertCandlestickExamples() {
-        const arenaExamplesContainer = document.getElementById('arena-candlestick-examples');
-        if (arenaExamplesContainer) {
-            arenaExamplesContainer.innerHTML = 
-                generateCandlestickIllustration({type: 'bullish_example'}) +
-                generateCandlestickIllustration({type: 'bearish_example'});
-        }
-
         const simExamplesContainer = document.getElementById('sim-candlestick-examples');
         if (simExamplesContainer) {
             simExamplesContainer.innerHTML = 
@@ -1022,9 +970,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 generateCandlestickIllustration({type: 'bearish_example'});
         }
     }
-
-
-    // Removed populateCoinStrategies() as requested
 
     function populatePsychologyContent() {
         const container = document.getElementById('psychology-content');
@@ -1098,331 +1043,9 @@ document.addEventListener('DOMContentLoaded', () => {
         resultEl.innerHTML = `Rasio 1 : ${ratio.toFixed(2)} ${ratio >= 2 ? '👍' : (ratio >= 1 ? '🤔' : '👎')}`;
     }
 
-    // --- CHARTING LOGIC ---
-    function generatePriceData(length = 100) {
-        const data = [];
-        let price = Math.random() * 50000 + 10000;
-        if (state.activeCoin === 'USDT') { // Keep USDT price stable
-            price = 1.00;
-        }
-        for(let i=0; i<length; i++) {
-            const date = new Date();
-            date.setDate(date.getDate() - (length - i));
-            if (state.activeCoin === 'USDT') {
-                price = 1.00 + (Math.random() - 0.5) * 0.0001; // Very small fluctuations for stablecoin
-            } else {
-                // Simulate OHLC for candlestick
-                const open = price;
-                const close = open + (Math.random() - 0.5) * (open * 0.02);
-                const high = Math.max(open, close) * (1 + Math.random() * 0.005);
-                const low = Math.min(open, close) * (1 - Math.random() * 0.005);
-                price = close; // Next candle's open will be based on this close
-                data.push({
-                    x: date.getTime(),
-                    o: open,
-                    h: high,
-                    l: low,
-                    c: close
-                });
-            }
-        }
-        return data;
-    }
-    
-    function calculateSMA(data, period) {
-        let sma = [];
-        for (let i = period - 1; i < data.length; i++) {
-            let sum = 0;
-            for (let j = 0; j < period; j++) {
-                sum += data[i - j].c; // Use close price for SMA
-            }
-            sma.push({x: data[i].x, y: sum / period});
-        }
-        return sma;
-    }
-
-    function calculateBollingerBands(data, period, stdDev) {
-        let middle = [], upper = [], lower = [];
-        for (let i = period - 1; i < data.length; i++) {
-            let slice = data.slice(i - period + 1, i + 1).map(d => d.c); // Use close price
-            let sum = slice.reduce((a, b) => a + b, 0);
-            let mean = sum / period;
-            
-            let sqDiff = slice.map(val => Math.pow(val - mean, 2)).reduce((a, b) => a + b, 0);
-            let deviation = Math.sqrt(sqDiff / period);
-            
-            middle.push({x: data[i].x, y: mean});
-            upper.push({x: data[i].x, y: mean + stdDev * deviation});
-            lower.push({x: data[i].x, y: mean - stdDev * deviation});
-        }
-        return { middle, upper, lower };
-    }
-
-    function calculateRSI(data, period) {
-        let rsi = [];
-        let gains = 0, losses = 0;
-        for (let i = 1; i < data.length; i++) {
-            const change = data[i].c - data[i-1].c; // Use close price
-            if(i < period) {
-                if (change > 0) gains += change;
-                else losses -= change;
-            } else {
-                if(i === period) {
-                    gains /= period;
-                    losses /= period;
-                } else {
-                    gains = (gains * (period - 1) + (change > 0 ? change : 0)) / period;
-                    losses = (losses * (period - 1) + (change < 0 ? -change : 0)) / period;
-                }
-
-                if (losses === 0) {
-                    rsi.push({x: data[i].x, y: 100});
-                } else {
-                    const rs = gains / losses;
-                    rsi.push({x: data[i].x, y: 100 - (100 / (1 + rs))});
-                }
-            }
-        }
-        return rsi;
-    }
-
-    function calculateMACD(data, shortPeriod, longPeriod, signalPeriod) {
-        const calculateEMA = (d, p) => {
-            let ema = [];
-            let k = 2 / (p + 1);
-            ema.push(d[0]);
-            for (let i = 1; i < d.length; i++) {
-                ema.push(d[i] * k + ema[i-1] * (1-k));
-            }
-            return ema;
-        }
-        
-        const prices = data.map(d => d.c); // Use close price
-        const emaShort = calculateEMA(prices, shortPeriod);
-        const emaLong = calculateEMA(prices, longPeriod);
-        
-        let macdLine = [];
-        for (let i = 0; i < prices.length; i++) {
-            macdLine.push(emaShort[i] - emaLong[i]);
-        }
-        
-        const signalLine = calculateEMA(macdLine, signalPeriod);
-        const histogram = [];
-        for (let i = 0; i < prices.length; i++) {
-             histogram.push(macdLine[i] - signalLine[i]);
-        }
-
-        const dates = data.map(d => d.x);
-        return {
-            macd: macdLine.map((val, i) => ({x: dates[i], y: val})),
-            signal: signalLine.map((val, i) => ({x: dates[i], y: val})),
-            histogram: histogram.map((val, i) => ({x: dates[i], y: val}))
-        };
-    }
-
-    function updateCharts() {
-        // Destroy existing charts
-        Object.values(chartInstances).forEach(chart => chart.destroy());
-        chartInstances = {};
-
-        const data = generatePriceData(); // This now returns OHLC data
-        const labels = data.map(d => new Date(d.x).toLocaleDateString()); // Use dates for labels
-        
-        const datasets = [{
-            label: `${appData.coins[state.activeCoin].name} Price`,
-            data: data, // Pass OHLC objects directly
-            // Candlestick plugin will handle styling
-        }];
-
-        const infoBoxContainer = document.getElementById('info-box-container');
-        infoBoxContainer.innerHTML = '';
-        
-        if (state.activeIndicators.ma50) {
-            const sma50 = calculateSMA(data, 50);
-            datasets.push({
-                label: 'SMA 50',
-                data: sma50.map(d => d.y),
-                borderColor: appData.indicators.ma50.color,
-                borderWidth: 1.5,
-                pointRadius: 0,
-                fill: false,
-                tension: 0.4,
-                type: 'line' // Explicitly set type for overlays
-            });
-            infoBoxContainer.innerHTML += `<div class="bg-orange-50 text-orange-800 text-sm p-2 rounded-lg"><strong>SMA 50 (Overlay):</strong> Menunjukkan tren jangka menengah. Harga di atasnya = bullish.</div>`;
-
-        }
-        if (state.activeIndicators.ma200) {
-            const sma200 = calculateSMA(data, 200);
-            datasets.push({
-                label: 'SMA 200',
-                data: sma200.map(d => d.y),
-                borderColor: appData.indicators.ma200.color,
-                borderWidth: 1.5,
-                pointRadius: 0,
-                fill: false,
-                tension: 0.4,
-                type: 'line' // Explicitly set type for overlays
-            });
-            infoBoxContainer.innerHTML += `<div class="bg-blue-50 text-blue-800 text-sm p-2 rounded-lg"><strong>SMA 200 (Overlay):</strong> Menunjukkan tren jangka panjang. Level support/resistance kunci.</div>`;
-        }
-        if (state.activeIndicators.bb) {
-            const bb = calculateBollingerBands(data, 20, 2);
-            datasets.push({ label: 'BB Upper', data: bb.upper.map(d=>d.y), ...chartConfig.bb.upper, type: 'line' }); // Explicitly set type
-            datasets.push({ label: 'BB Lower', data: bb.lower.map(d=>d.y), ...chartConfig.bb.lower, type: 'line' }); // Explicitly set type
-             infoBoxContainer.innerHTML += `<div class="bg-teal-50 text-teal-800 text-sm p-2 rounded-lg"><strong>Bollinger Bands:</strong> Mengukur volatilitas. Pita menyempit (squeeze) sering mendahului pergerakan besar.</div>`;
-        }
-
-        const ctxPrice = document.getElementById('priceChart').getContext('2d');
-        chartInstances.price = new Chart(ctxPrice, {
-            type: 'bar', // Use bar type and let plugin draw candlesticks
-            data: { labels: labels, datasets }, // <-- FIX: Ensure labels are passed here
-            options: chartConfig.main,
-            plugins: [candlestickPlugin] // Use the custom plugin
-        });
-
-        const indicatorChartsContainer = document.getElementById('indicator-charts-container');
-        indicatorChartsContainer.innerHTML = ''; // Clear previous indicator charts
-        
-        if(state.activeIndicators.rsi) {
-            const rsiData = calculateRSI(data, 14);
-            const rsiLabels = rsiData.map(d => d.x);
-            const rsiValues = rsiData.map(d => d.y);
-            
-            const canvasEl = document.createElement('canvas');
-            indicatorChartsContainer.innerHTML += `<div class="indicator-chart-container"></div>`;
-            indicatorChartsContainer.lastChild.appendChild(canvasEl);
-            
-            const lastRSI = rsiValues[rsiValues.length - 1].toFixed(2);
-            let rsiText = `RSI (${lastRSI})`;
-            if(lastRSI > 70) rsiText += ' - Overbought 🥵';
-            if(lastRSI < 30) rsiText += ' - Oversold 🥶';
-
-            infoBoxContainer.innerHTML += `<div class="bg-purple-50 text-purple-800 text-sm p-2 rounded-lg"><strong>RSI (Relative Strength Index):</strong> Mengukur momentum. >70 = Overbought, <30 = Oversold.</div>`;
-
-            chartInstances.rsi = new Chart(canvasEl.getContext('2d'), {
-                type: 'line',
-                data: {
-                    labels: rsiLabels,
-                    datasets: [{
-                        label: 'RSI',
-                        data: rsiValues,
-                        ...chartConfig.rsi
-                    }]
-                },
-                options: chartConfig.indicator(rsiText)
-            });
-        }
-
-        if(state.activeIndicators.macd) {
-            const macdData = calculateMACD(data, 12, 26, 9);
-            const macdLabels = macdData.macd.map(d => d.x);
-
-            const canvasEl = document.createElement('canvas');
-            indicatorChartsContainer.innerHTML += `<div class="indicator-chart-container"></div>`;
-            indicatorChartsContainer.lastChild.appendChild(canvasEl);
-
-             infoBoxContainer.innerHTML += `<div class="bg-pink-50 text-pink-800 text-sm p-2 rounded-lg"><strong>MACD:</strong> Menunjukkan momentum dan tren. Perhatikan persilangan garis MACD (biru) dan Sinyal (merah).</div>`;
-
-            chartInstances.macd = new Chart(canvasEl.getContext('2d'), {
-                type: 'bar', // MACD histogram is bar, lines are line
-                data: {
-                    labels: macdLabels,
-                    datasets: [
-                        { type: 'line', label: 'MACD', data: macdData.macd.map(d => d.y), ...chartConfig.macd.macdLine },
-                        { type: 'line', label: 'Signal', data: macdData.signal.map(d => d.y), ...chartConfig.macd.signalLine },
-                        { type: 'bar', label: 'Histogram', data: macdData.histogram.map(v => v.y > 0 ? v.y : 0), backgroundColor: 'rgba(75, 192, 192, 0.5)' }, // Positive histogram
-                        { type: 'bar', label: 'Histogram', data: macdData.histogram.map(v => v.y < 0 ? v.y : 0), backgroundColor: 'rgba(255, 99, 132, 0.5)' } // Negative histogram
-                    ]
-                },
-                options: chartConfig.indicator('MACD')
-            });
-        }
-
-    }
-    
-    const chartConfig = {
-        main: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: { 
-                    type: 'category', // Changed to category for candlestick plugin to work with index
-                    labels: [], // Will be populated dynamically
-                    display: true 
-                },
-                y: { ticks: { font: { size: 10 } } }
-            },
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                    callbacks: {
-                        label: function(context) {
-                            const ohlc = context.dataset.data[context.dataIndex];
-                            if (ohlc && typeof ohlc.o !== 'undefined') {
-                                return [
-                                    `Open: ${ohlc.o.toFixed(2)}`,
-                                    `High: ${ohlc.h.toFixed(2)}`,
-                                    `Low: ${ohlc.l.toFixed(2)}`,
-                                    `Close: ${ohlc.c.toFixed(2)}`
-                                ];
-                            }
-                            return context.dataset.label + ': ' + context.parsed.y.toFixed(2);
-                        }
-                    }
-                }
-            },
-            interaction: {
-                mode: 'index',
-                intersect: false
-            }
-        },
-        bb: {
-            upper: {
-                borderColor: 'rgba(255, 159, 64, 0)',
-                backgroundColor: 'rgba(255, 159, 64, 0.1)',
-                borderWidth: 0,
-                pointRadius: 0,
-                fill: '+1'
-            },
-            lower: {
-                borderColor: 'rgba(255, 159, 64, 0)',
-                backgroundColor: 'rgba(255, 159, 64, 0.1)',
-                borderWidth: 0,
-                pointRadius: 0,
-                fill: '-1'
-            }
-        },
-        rsi: {
-            borderColor: 'rgba(153, 102, 255, 1)',
-            borderWidth: 2,
-            pointRadius: 0,
-            tension: 0.4,
-            fill: false,
-        },
-        macd: {
-            macdLine: { borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 2, pointRadius: 0, tension: 0.4, fill: false },
-            signalLine: { borderColor: 'rgba(255, 99, 132, 1)', borderWidth: 2, pointRadius: 0, tension: 0.4, fill: false }
-        },
-        indicator: (title) => ({
-             responsive: true,
-             maintainAspectRatio: false,
-             scales: {
-                 x: { display: false },
-                 y: { ticks: { font: { size: 10 } } }
-             },
-             plugins: {
-                 legend: { display: false },
-                 title: { display: true, text: title, align: 'start', font: { weight: 'bold' } }
-             }
-        })
-    };
-
     // --- GEMINI API INTEGRATION ---
     async function callGeminiAPI(prompt) {
-        const apiKey = "AIzaSyAq0Yfk9DucUsEB1QqMxOsJE9UfJPkafSc"; // IMPORTANT: For a public website, you should secure this API key on a server-side or serverless function.
+        const apiKey = ""; // IMPORTANT: For a public website, you should secure this API key on a server-side or serverless function.
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
         
         let chatHistory = [];
@@ -1463,7 +1086,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tradeIdeaLoadingDiv.classList.remove('hidden');
             tradeIdeaContentDiv.innerHTML = '';
 
-            const coinName = appData.coins[state.activeCoin].name;
+            const coinName = "koin kripto yang sedang Anda analisis";
             const prompt = `Berikan ide trading hipotetis (entry, stop-loss, take-profit, dan alasan singkat) untuk ${coinName} di pasar kripto. Anggap pasar sedang dalam tren acak. Format respons sebagai poin-poin.`;
 
             const idea = await callGeminiAPI(prompt);
@@ -1483,7 +1106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sentimentLoadingDiv.classList.remove('hidden');
             sentimentContentDiv.innerHTML = '';
 
-            const coinName = appData.coins[state.activeCoin].name;
+            const coinName = "koin kripto yang sedang Anda analisis";
             const prompt = `Berikan analisis sentimen pasar (bullish, bearish, atau netral) singkat untuk ${coinName} di pasar kripto saat ini, beserta alasan singkatnya. Anggap Anda adalah analis pasar yang menyederhanakan informasi untuk pemula.`;
 
             const sentiment = await callGeminiAPI(prompt);
@@ -1541,7 +1164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scenarioLoadingDiv.classList.remove('hidden');
             scenarioContentDiv.innerHTML = '';
 
-            const coinName = appData.coins[state.activeCoin].name;
+            const coinName = "koin kripto yang sedang Anda analisis";
             const prompt = `Sebagai ahli trading kripto, jelaskan bagaimana seorang trader mungkin bereaksi dan apa yang harus diperhatikan jika "${scenario}" terjadi pada ${coinName}. Fokus pada analisis teknis dan manajemen risiko. Jelaskan dengan bahasa yang mudah dipahami pemula.`;
 
             const response = await callGeminiAPI(prompt);
@@ -1562,7 +1185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             newsSummaryLoadingDiv.classList.remove('hidden');
             newsSummaryContentDiv.innerHTML = '';
 
-            const coinName = appData.coins[state.activeCoin].name;
+            const coinName = "koin kripto yang sedang Anda analisis";
             const prompt = `Sebagai analis pasar kripto, berikan ringkasan berita hipotetis singkat (1-2 paragraf) yang relevan dengan ${coinName} dan jelaskan bagaimana berita tersebut dapat mempengaruhi harganya secara umum. Fokus pada dampak fundamental dan sentimen pasar. Gunakan bahasa yang mudah dipahami pemula.`;
 
             const summary = await callGeminiAPI(prompt);
@@ -1612,7 +1235,7 @@ document.addEventListener('DOMContentLoaded', () => {
             trendPredictionLoadingDiv.classList.remove('hidden');
             trendPredictionContentDiv.innerHTML = '';
 
-            const coinName = appData.coins[state.activeCoin].name;
+            const coinName = "koin kripto yang sedang Anda analisis";
             const prompt = `Sebagai analis pasar kripto, berikan prediksi tren jangka pendek (misalnya, bullish, bearish, atau sideways) untuk ${coinName} dan berikan alasan hipotetis yang sangat sederhana. Ingat, ini hanya untuk tujuan edukasi dan bukan nasihat finansial.`;
 
             const prediction = await callGeminiAPI(prompt);
@@ -1633,23 +1256,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (type === 'candlestick' && pattern.illustration) {
             illustrationContainer.innerHTML = generateCandlestickIllustration(pattern.illustration);
         } else {
-            // For chart patterns, we don't have a direct visual illustration in this setup,
-            // so we can just clear it or add a placeholder.
             illustrationContainer.innerHTML = '<p class="text-gray-500 text-sm">Ilustrasi pola grafik tidak tersedia di sini.</p>';
         }
 
-        // Reset previous AI insight
         document.getElementById('pattern-insight-result').classList.add('hidden');
         document.getElementById('pattern-insight-loading').classList.add('hidden');
         document.getElementById('pattern-insight-content').innerHTML = '';
 
-        modal.style.display = 'flex'; // Use flex to center the modal
+        modal.style.display = 'flex';
     }
 
     // --- SIMULATION LOGIC ---
     function setupSimulation() {
         const simCoinSelect = document.getElementById('sim-coin-select');
-        simCoinSelect.innerHTML = Object.keys(appData.coins).filter(key => key !== 'USDT').map(key => // Exclude USDT for trading
+        const allowedCoins = ['BTC', 'ETH', 'SOL', 'BNB', 'ADA'];
+        simCoinSelect.innerHTML = allowedCoins.map(key => 
             `<option value="${key}" ${key === state.simulation.selectedSimCoin ? 'selected' : ''}>${appData.coins[key].name} (${key})</option>`
         ).join('');
         simCoinSelect.addEventListener('change', (e) => {
@@ -1658,230 +1279,513 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('sim-holding-coin-display').textContent = e.target.value;
             document.getElementById('buy-coin-display').textContent = e.target.value;
             document.getElementById('sell-coin-display').textContent = e.target.value;
-            resetSimulation(); // Reset simulation when coin changes
+            resetSimulation();
         });
 
-        document.getElementById('start-sim-btn').addEventListener('click', startSimulation);
-        document.getElementById('reset-sim-btn').addEventListener('click', resetSimulation);
+        document.getElementById('sim-start-sim-btn').addEventListener('click', startOverallSimulation);
+        document.getElementById('sim-reset-sim-btn').addEventListener('click', resetSimulation);
         document.getElementById('buy-btn').addEventListener('click', buyCoin);
         document.getElementById('sell-btn').addEventListener('click', sellCoin);
 
-        // Initial UI update for simulation section
+        // ApexCharts specific controls
+        document.getElementById("sim-timeframe").addEventListener("change", () => {
+            state.simulation.simTimeframeMilliseconds = parseInt(document.getElementById("sim-timeframe").value);
+            // Re-initialize chart with new timeframe and restart simulation
+            stopSimulationChart(); 
+            initializeSimChart();
+            startSimulationChart();
+        });
+
+        document.getElementById("sim-chart-pauseBtn").addEventListener("click", pauseSim);
+        document.getElementById("sim-chart-resumeBtn").addEventListener("click", resumeSim);
+
+        // New AI feature buttons
+        document.getElementById('analyze-trade-btn').addEventListener('click', analyzeLastTrade);
+        document.getElementById('suggest-strategy-btn').addEventListener('click', suggestStrategy);
+        document.getElementById('evaluate-portfolio-btn').addEventListener('click', evaluatePortfolio);
+
+        // Call updateSimulationUI only if elements are expected to be present, or add null checks within it.
+        // For initial load, it's safer to call it after the view is rendered.
+        // However, since it's called in init(), we need the null checks.
         updateSimulationUI();
+        renderTransactionLog();
     }
 
-    function startSimulation() {
+    // Initialize ApexCharts for simulation
+    function initializeSimChart() {
+        if (typeof ApexCharts === 'undefined' || !ApexCharts) {
+            console.error("ApexCharts library is not loaded or not properly initialized.");
+            return;
+        }
+
+        const chartElement = document.getElementById('chart');
+        const volumeChartElement = document.getElementById('volumeChart');
+        if (!chartElement || !volumeChartElement) {
+            console.error("Error: Chart elements not found for ApexCharts initialization.");
+            // Do not call updateSimulationUI here if elements are null, as it will cause errors.
+            return;
+        }
+
+        // Destroy existing charts if they exist
+        if (state.simulation.simChartInstance) {
+            state.simulation.simChartInstance.destroy();
+            state.simulation.simChartInstance = null;
+        }
+        if (state.simulation.simVolumeChartInstance) {
+            state.simulation.simVolumeChartInstance.destroy();
+            state.simulation.simVolumeChartInstance = null;
+        }
+
+        const chartWidth = chartElement.clientWidth;
+        const chartHeight = chartElement.clientHeight;
+
+        if (chartWidth === 0 || chartHeight === 0) {
+            console.warn("Chart element has zero dimensions. Deferring ApexCharts initialization. Current dimensions:", chartWidth, chartHeight);
+            setTimeout(() => initializeSimChart(), 100);
+            return;
+        }
+
+        console.log("Attempting to initialize sim chart with dimensions:", chartWidth, chartHeight);
+
+        try {
+            const initialData = generateInitialSimData(50); // Generate initial 50 candles
+            state.simulation.candleData = initialData.candles;
+            state.simulation.volumeData = initialData.volumes;
+            state.simulation.simLastTime = initialData.lastTime; // Update last time after initial data generation
+
+            const chartOptions = {
+                series: [{
+                    data: state.simulation.candleData
+                }],
+                chart: {
+                    type: 'candlestick',
+                    height: chartHeight,
+                    width: '100%',
+                    animations: {
+                        enabled: false // Disable animations for real-time updates
+                    },
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: true
+                    }
+                },
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        formatter: function(val) {
+                            return new Date(val).toLocaleString();
+                        },
+                        style: {
+                            colors: '#334155' // Darker text for light background
+                        }
+                    }
+                },
+                yaxis: {
+                    tooltip: {
+                        enabled: true
+                    },
+                    labels: {
+                        style: {
+                            colors: '#334155' // Darker text for light background
+                        }
+                    }
+                },
+                plotOptions: {
+                    candlestick: {
+                        colors: {
+                            upward: '#22C55E',   // Green
+                            downward: '#EF4444' // Red
+                        }
+                    }
+                },
+                grid: {
+                    borderColor: '#e0e0e0',
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd MMM HH:mm'
+                    }
+                }
+            };
+
+            const volumeChartOptions = {
+                series: [{
+                    name: 'Volume',
+                    data: state.simulation.volumeData
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 150,
+                    width: '100%',
+                    animations: {
+                        enabled: false
+                    },
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: true
+                    }
+                },
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        formatter: function(val) {
+                            return new Date(val).toLocaleString();
+                        },
+                        style: {
+                            colors: '#334155' // Darker text for light background
+                        }
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#334155' // Darker text for light background
+                        }
+                    }
+                },
+                colors: ['#3b82f6'], // Blue for volume bars
+                grid: {
+                    borderColor: '#e0e0e0',
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd MMM HH:mm'
+                    }
+                }
+            };
+
+            state.simulation.simChartInstance = new ApexCharts(chartElement, chartOptions);
+            state.simulation.simChartInstance.render();
+
+            state.simulation.simVolumeChartInstance = new ApexCharts(volumeChartElement, volumeChartOptions);
+            state.simulation.simVolumeChartInstance.render();
+
+            // Set current price from the last candle
+            if (state.simulation.candleData.length > 0) {
+                state.simulation.currentPrice = state.simulation.candleData[state.simulation.candleData.length - 1].y[3]; // Close price
+            }
+            updateSimulationUI(); // Now it's safe to call this after charts are rendered
+
+        } catch (error) {
+            console.error("Error during ApexCharts initialization:", error);
+            state.simulation.simChartInstance = null;
+            state.simulation.simVolumeChartInstance = null;
+        }
+    }
+
+    // Generate a new candle and volume data point for ApexCharts
+    function getNextSimData(lastKnownPrice) {
+        const volatilityFactor = 0.005; // Base volatility (0.5% up/down)
+        const eventImpactFactor = state.simulation.newsImpact * 0.005; // News impact (e.g., 2 -> 1% impact)
+
+        let open = lastKnownPrice;
+        if (!open) {
+            open = appData.coins[state.simulation.selectedSimCoin].initialPrice;
+        }
+        
+        let close = open * (1 + (Math.random() - 0.5) * volatilityFactor * 2 + eventImpactFactor);
+        
+        if (state.simulation.selectedSimCoin === 'ADA') {
+            if (close < 0.00001) close = 0.00001;
+        } else {
+            if (close < 0.01) close = 0.01;
+        }
+
+        let high = Math.max(open, close) * (1 + Math.random() * 0.002);
+        let low = Math.min(open, close) * (1 - Math.random() * 0.002);
+
+        const time = state.simulation.simLastTime + state.simulation.simTimeframeMilliseconds;
+
+        state.simulation.simLastTime = time;
+        state.simulation.currentPrice = close;
+
+        const volume = Math.floor(Math.random() * 100 + 10 + Math.abs(state.simulation.newsImpact) * 50); // Volume also impacted by news
+
+        return {
+            candle: {
+                x: new Date(time),
+                y: [open, high, low, close].map(val => parseFloat(val.toFixed(6)))
+            },
+            volume: {
+                x: new Date(time),
+                y: volume
+            }
+        };
+    }
+
+    // Generate initial data for ApexCharts
+    function generateInitialSimData(numCandles = 50) {
+        const candles = [];
+        const volumes = [];
+        let currentTime = Date.now() - (numCandles * state.simulation.simTimeframeMilliseconds);
+        let currentPriceForInit = appData.coins[state.simulation.selectedSimCoin].initialPrice;
+
+        for (let i = 0; i < numCandles; i++) {
+            const open = currentPriceForInit;
+            const close = open * (1 + (Math.random() - 0.5) * 0.01);
+            const high = Math.max(open, close) * (1 + Math.random() * 0.002);
+            const low = Math.min(open, close) * (1 - Math.random() * 0.002);
+            const volume = Math.floor(Math.random() * 100 + 10);
+
+            candles.push({
+                x: new Date(currentTime),
+                y: [open, high, low, close].map(val => parseFloat(val.toFixed(6)))
+            });
+            volumes.push({
+                x: new Date(currentTime),
+                y: volume
+            });
+            currentPriceForInit = close;
+            currentTime += state.simulation.simTimeframeMilliseconds;
+        }
+        return { candles, volumes, lastTime: currentTime };
+    }
+
+    // Start the ApexCharts candlestick and volume simulation
+    function startSimulationChart() {
+        if (state.simulation.priceInterval) return;
+
+        if (!state.simulation.simChartInstance || !state.simulation.simVolumeChartInstance) {
+            console.warn("Charts not initialized. Attempting to initialize...");
+            initializeSimChart();
+            if (!state.simulation.simChartInstance || !state.simulation.simVolumeChartInstance) {
+                console.error("Failed to initialize charts after retry. Cannot start simulation.");
+                return;
+            }
+        }
+
+        state.simulation.priceInterval = setInterval(() => {
+            const lastCandle = state.simulation.candleData[state.simulation.candleData.length - 1];
+            const newSimData = getNextSimData(lastCandle ? lastCandle.y[3] : null);
+            
+            state.simulation.candleData.push(newSimData.candle);
+            state.simulation.volumeData.push(newSimData.volume);
+            
+            const maxCandles = 60; // Keep roughly 60 candles visible
+            if (state.simulation.candleData.length > maxCandles) {
+                state.simulation.candleData.shift();
+                state.simulation.volumeData.shift();
+            }
+
+            if (state.simulation.simChartInstance && state.simulation.simVolumeChartInstance) {
+                state.simulation.simChartInstance.updateSeries([{ data: state.simulation.candleData }]);
+                state.simulation.simVolumeChartInstance.updateSeries([{ data: state.simulation.volumeData }]);
+            } else {
+                console.error("Chart instances are null. Cannot update charts.");
+                stopSimulationChart();
+                return;
+            }
+            updateSimulationUI();
+        }, 1000); // Update every 1 second
+
+        startNewsGeneration();
+    }
+
+    // Stop the ApexCharts candlestick and volume simulation
+    function stopSimulationChart() {
+        if (state.simulation.priceInterval) {
+            clearInterval(state.simulation.priceInterval);
+            state.simulation.priceInterval = null;
+        }
+        stopNewsGeneration();
+    }
+
+    function pauseSim() {
+        stopSimulationChart(); // Uses the same logic as stop
+        console.log("Simulation paused.");
+    }
+
+    function resumeSim() {
+        startSimulationChart(); // Uses the same logic as start
+        console.log("Simulation resumed.");
+    }
+
+    // Overall simulation start (for balance, holdings, etc.)
+    function startOverallSimulation() {
         if (state.simulation.active) return;
 
         state.simulation.active = true;
         state.simulation.balance = 10000;
         state.simulation.coinHoldings = {};
-        state.simulation.coinHoldings[state.simulation.selectedSimCoin] = 0; // Initialize holding for selected coin
-        state.simulation.priceHistory = []; // Clear history for new simulation
-        state.simulation.currentPrice = 0;
-        state.simulation.initialBuyPrice = 0; // Reset initial buy price
-        state.simulation.eventActive = false;
-        state.simulation.eventMessage = '';
+        state.simulation.coinHoldings[state.simulation.selectedSimCoin] = 0;
+        state.simulation.initialBuyPrice = 0;
+        state.simulation.newsImpact = 0; // Reset news impact
+        state.simulation.transactions = [];
 
-        document.getElementById('start-sim-btn').classList.add('hidden');
-        document.getElementById('reset-sim-btn').classList.remove('hidden');
+        document.getElementById('sim-start-sim-btn').classList.add('hidden');
+        document.getElementById('sim-reset-sim-btn').classList.remove('hidden');
         document.getElementById('sim-coin-select').disabled = true;
         document.getElementById('sim-pnl-info').classList.add('hidden');
-        document.getElementById('sim-event-message').classList.add('hidden');
+        document.getElementById('newsBox').classList.remove('breaking');
+        document.getElementById('newsBox').textContent = "Tidak ada berita saat ini...";
 
-
-        // Initialize chart
-        const ctx = document.getElementById('simPriceChart').getContext('2d');
-        if (state.simulation.simChartInstance) {
-            state.simulation.simChartInstance.destroy();
-        }
-        state.simulation.simChartInstance = new Chart(ctx, {
-            type: 'bar', // Use bar type and let plugin draw candlesticks
-            data: {
-                labels: [],
-                datasets: [{
-                    label: `Harga ${state.simulation.selectedSimCoin}`,
-                    data: [], // Will store OHLC objects
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { 
-                        type: 'category', 
-                        labels: [], 
-                        display: true 
-                    },
-                    y: { ticks: { font: { size: 10 } } }
-                },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { 
-                        mode: 'index', 
-                        intersect: false,
-                        callbacks: {
-                            label: function(context) {
-                                const ohlc = context.dataset.data[context.dataIndex];
-                                if (ohlc && typeof ohlc.o !== 'undefined') {
-                                    return [
-                                        `Open: ${ohlc.o.toFixed(2)}`,
-                                        `High: ${ohlc.h.toFixed(2)}`,
-                                        `Low: ${ohlc.l.toFixed(2)}`,
-                                        `Close: ${ohlc.c.toFixed(2)}`
-                                    ];
-                                }
-                                return context.dataset.label + ': ' + context.parsed.y.toFixed(2);
-                            }
-                        }
-                    }
-                }
-            },
-            plugins: [candlestickPlugin] // Use the custom plugin
-        });
-
-        // Start price updates
-        state.simulation.priceInterval = setInterval(updateSimPrice, 500); // Update price every 0.5 seconds
-        // Start random event triggers
-        state.simulation.eventInterval = setInterval(triggerRandomEvent, 10000); // Check for event every 10 seconds
-
+        initializeSimChart(); // Re-initialize charts to clear old data
+        startSimulationChart();
         updateSimulationUI();
+        renderTransactionLog();
     }
 
     function resetSimulation() {
-        stopSimulation();
+        stopSimulationChart();
+        state.simulation.active = false;
         state.simulation.balance = 10000;
         state.simulation.coinHoldings = {};
         state.simulation.coinHoldings[state.simulation.selectedSimCoin] = 0;
-        state.simulation.priceHistory = [];
         state.simulation.currentPrice = 0;
         state.simulation.initialBuyPrice = 0;
-        state.simulation.eventActive = false;
-        state.simulation.eventMessage = '';
+        state.simulation.newsImpact = 0;
+        state.simulation.transactions = [];
 
         if (state.simulation.simChartInstance) {
             state.simulation.simChartInstance.destroy();
             state.simulation.simChartInstance = null;
         }
+        if (state.simulation.simVolumeChartInstance) {
+            state.simulation.simVolumeChartInstance.destroy();
+            state.simulation.simVolumeChartInstance = null;
+        }
+        state.simulation.candleData = [];
+        state.simulation.volumeData = [];
 
-        document.getElementById('start-sim-btn').classList.remove('hidden');
-        document.getElementById('reset-sim-btn').classList.add('hidden');
+        document.getElementById('sim-start-sim-btn').classList.remove('hidden');
+        document.getElementById('sim-reset-sim-btn').classList.add('hidden');
         document.getElementById('sim-coin-select').disabled = false;
         document.getElementById('buy-amount').value = '';
         document.getElementById('sell-amount').value = '';
         document.getElementById('sim-pnl-info').classList.add('hidden');
-        document.getElementById('sim-event-message').classList.add('hidden');
+        document.getElementById('newsBox').classList.remove('breaking');
+        document.getElementById('newsBox').textContent = "Tidak ada berita saat ini...";
 
         updateSimulationUI();
-        // Re-render the initial blank chart with one candlestick when resetting
-        render(); 
+        renderTransactionLog();
     }
 
-    function stopSimulation() {
-        state.simulation.active = false;
-        if (state.simulation.priceInterval) {
-            clearInterval(state.simulation.priceInterval);
-        }
-        if (state.simulation.eventInterval) {
-            clearInterval(state.simulation.eventInterval);
-        }
-        if (state.simulation.eventTimer) {
-            clearTimeout(state.simulation.eventTimer);
+    function updateNews() {
+        const newsChance = Math.random();
+        if (newsChance < 0.2) { // 20% chance to trigger an event
+            state.simulation.newsIndex = (state.simulation.newsIndex + 1) % state.simulation.newsList.length;
+            const news = state.simulation.newsList[state.simulation.newsIndex];
+            const newsBox = document.getElementById('newsBox');
+            if (newsBox) { // Add null check
+                newsBox.innerText = `📢 BREAKING NEWS: ${news.text}`;
+                newsBox.classList.add("breaking");
+            }
+            state.simulation.newsImpact = news.impact;
+            clearTimeout(state.simulation.breakingTimeout);
+            state.simulation.breakingTimeout = setTimeout(() => {
+                if (newsBox) { // Add null check
+                    newsBox.innerText = "Tidak ada berita saat ini...";
+                    newsBox.classList.remove("breaking");
+                }
+                state.simulation.newsImpact = 0;
+            }, 10000); // News stays for 10 seconds
         }
     }
 
-    function updateSimPrice() {
-        let lastPrice = state.simulation.priceHistory.length > 0 ? state.simulation.priceHistory[state.simulation.priceHistory.length - 1].c : (Math.random() * 50000 + 10000);
+    function startNewsGeneration() {
+        if (state.simulation.newsInterval) return;
+        const minInterval = 30000; // 30 seconds
+        const maxInterval = 60000; // 60 seconds
+        const randomInterval = Math.floor(Math.random() * (maxInterval - minInterval + 1)) + minInterval;
         
-        // Ensure initial price is not zero if history is empty
-        if (lastPrice === 0 && state.simulation.priceHistory.length === 0) {
-            lastPrice = Math.random() * 50000 + 10000;
-        }
-
-        let open = lastPrice;
-        let close = open + (Math.random() - 0.5) * (open * 0.01); // Small random fluctuation
-        
-        // Apply event impact
-        if (state.simulation.eventActive) {
-            close += state.simulation.eventMagnitude * (open * 0.05); // Larger impact
-        }
-
-        if (close < 0.0001) close = 0.0001; // Prevent price from going too low
-
-        let high = Math.max(open, close) * (1 + Math.random() * 0.005); // High slightly above max(open, close)
-        let low = Math.min(open, close) * (1 - Math.random() * 0.005); // Low slightly below min(open, close)
-
-        state.simulation.currentPrice = close; // The "current price" displayed is the latest close
-        state.simulation.priceHistory.push({
-            x: Date.now(),
-            o: open,
-            h: high,
-            l: low,
-            c: close
-        });
-
-        // Keep history limited for performance
-        if (state.simulation.priceHistory.length > 100) {
-            state.simulation.priceHistory.shift();
-        }
-
-        if (state.simulation.simChartInstance) {
-            state.simulation.simChartInstance.data.labels = state.simulation.priceHistory.map(d => new Date(d.x).toLocaleTimeString());
-            state.simulation.simChartInstance.data.datasets[0].data = state.simulation.priceHistory; // Pass OHLC objects
-            state.simulation.simChartInstance.update();
-        }
-        updateSimulationUI();
+        state.simulation.newsInterval = setInterval(updateNews, randomInterval);
+        console.log(`News generation started with interval: ${randomInterval / 1000} seconds`);
     }
 
-    const eventMessages = [
-        { type: 'positive', msg: (coin) => `Berita: Kemitraan besar diumumkan untuk ${coin}! Harga melonjak!` },
-        { type: 'positive', msg: (coin) => `Berita: Adopsi ${coin} meningkat pesat! Pasar bullish!` },
-        { type: 'positive', msg: (coin) => `Berita: Upgrade jaringan ${coin} berhasil! Potensi kenaikan!` },
-        { type: 'negative', msg: (coin) => `Berita: Regulasi baru menekan ${coin}! Harga anjlok!` },
-        { type: 'negative', msg: (coin) => `Berita: Peretasan di platform terkait ${coin}! Ada kepanikan jual!` },
-        { type: 'negative', msg: (coin) => `Berita: Whale besar menjual ${coin}! Tekanan jual tinggi!` }
-    ];
-
-    function triggerRandomEvent() {
-        if (state.simulation.eventActive) return; // Don't trigger new event if one is active
-
-        const randomChance = Math.random();
-        if (randomChance < 0.3) { // 30% chance to trigger an event
-            const eventIndex = Math.floor(Math.random() * eventMessages.length);
-            const event = eventMessages[eventIndex];
-            
-            state.simulation.eventActive = true;
-            state.simulation.eventMagnitude = event.type === 'positive' ? (Math.random() * 0.05 + 0.02) : -(Math.random() * 0.05 + 0.02); // 2-7% impact
-            state.simulation.eventDuration = Math.floor(Math.random() * 5) + 5; // Event lasts 5-10 seconds (500ms * 10-20 price updates)
-            state.simulation.eventMessage = event.msg(appData.coins[state.simulation.selectedSimCoin].name);
-
-            document.getElementById('sim-event-message').textContent = state.simulation.eventMessage;
-            document.getElementById('sim-event-message').classList.remove('hidden');
-
-            // Clear event after duration
-            state.simulation.eventTimer = setTimeout(() => {
-                state.simulation.eventActive = false;
-                state.simulation.eventMagnitude = 0;
-                document.getElementById('sim-event-message').classList.add('hidden');
-            }, state.simulation.eventDuration * 1000); // Convert seconds to milliseconds
+    function stopNewsGeneration() {
+        if (state.simulation.newsInterval) {
+            clearInterval(state.simulation.newsInterval);
+            state.simulation.newsInterval = null;
+            console.log("News generation stopped.");
         }
+        if (state.simulation.breakingTimeout) {
+            clearTimeout(state.simulation.breakingTimeout);
+            state.simulation.breakingTimeout = null;
+        }
+        const newsBox = document.getElementById('newsBox');
+        if (newsBox) { // Add null check
+            newsBox.classList.remove('breaking');
+            newsBox.textContent = "Tidak ada berita saat ini...";
+        }
+        state.simulation.newsImpact = 0;
     }
 
     function updateSimulationUI() {
-        document.getElementById('sim-balance').textContent = state.simulation.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        document.getElementById('sim-current-price').textContent = state.simulation.currentPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        // Add null checks for all elements before accessing their properties
+        const simBalance = document.getElementById('sim-balance');
+        if (simBalance) {
+            simBalance.textContent = state.simulation.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        const simCurrentPrice = document.getElementById('sim-current-price');
+        if (simCurrentPrice) {
+            simCurrentPrice.textContent = state.simulation.currentPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
         
         const currentCoinHolding = state.simulation.coinHoldings[state.simulation.selectedSimCoin] || 0;
-        document.getElementById('sim-coin-holding').textContent = currentCoinHolding.toFixed(4);
+        const simCoinHolding = document.getElementById('sim-coin-holding');
+        if (simCoinHolding) {
+            simCoinHolding.textContent = currentCoinHolding.toFixed(4);
+        }
+
+        // Update Price, Change, Direction
+        const priceElement = document.getElementById('price');
+        const changeElement = document.getElementById('change');
+        const directionElement = document.getElementById('direction');
+
+        if (priceElement) { // Add null check
+            priceElement.textContent = `Harga: $${state.simulation.currentPrice.toFixed(2)}`;
+        }
+
+        if (changeElement && directionElement) { // Add null checks
+            if (state.simulation.candleData.length > 1) {
+                const prevClose = state.simulation.candleData[state.simulation.candleData.length - 2].y[3];
+                const currentClose = state.simulation.currentPrice;
+                const percentageChange = ((currentClose - prevClose) / prevClose) * 100;
+                changeElement.textContent = `Change: ${percentageChange.toFixed(2)}%`;
+                if (percentageChange > 0) {
+                    changeElement.style.color = '#22C55E'; // Green
+                    directionElement.textContent = '▲';
+                    directionElement.style.color = '#22C55E';
+                } else if (percentageChange < 0) {
+                    changeElement.style.color = '#EF4444'; // Red
+                    directionElement.textContent = '▼';
+                    directionElement.style.color = '#EF4444';
+                } else {
+                    changeElement.style.color = ''; // Reset
+                    directionElement.textContent = '⬍';
+                    directionElement.style.color = '';
+                }
+            } else {
+                changeElement.textContent = 'Change: 0%';
+                changeElement.style.color = '';
+                directionElement.textContent = '⬍';
+                directionElement.style.color = '';
+            }
+        }
 
         // Calculate and display PnL
-        if (currentCoinHolding > 0 && state.simulation.initialBuyPrice > 0) {
-            const unrealizedPnL = (state.simulation.currentPrice - state.simulation.initialBuyPrice) * currentCoinHolding;
-            document.getElementById('sim-pnl').textContent = unrealizedPnL.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
-            document.getElementById('sim-pnl').className = `text-xl font-bold ${unrealizedPnL >= 0 ? 'text-green-600' : 'text-red-600'}`;
-            document.getElementById('sim-pnl-info').classList.remove('hidden');
-        } else {
-            document.getElementById('sim-pnl-info').classList.add('hidden');
+        const totalValue = state.simulation.balance + currentCoinHolding * state.simulation.currentPrice;
+        const totalValueElement = document.getElementById("totalValue");
+        if (totalValueElement) { // Add null check
+            totalValueElement.innerText = `📈 Total Value: $${totalValue.toFixed(2)}`;
+        }
+
+        const simPnl = document.getElementById('sim-pnl');
+        const simPnlInfo = document.getElementById('sim-pnl-info');
+        if (simPnl && simPnlInfo) { // Add null checks
+            if (currentCoinHolding > 0 && state.simulation.initialBuyPrice > 0) {
+                const unrealizedPnL = (state.simulation.currentPrice - state.simulation.initialBuyPrice) * currentCoinHolding;
+                simPnl.textContent = unrealizedPnL.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                simPnl.className = `text-xl font-bold ${unrealizedPnL >= 0 ? 'text-green-600' : 'text-red-600'}`;
+                simPnlInfo.classList.remove('hidden');
+            } else {
+                simPnlInfo.classList.add('hidden');
+            }
         }
     }
 
@@ -1902,11 +1806,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const coinAmount = amountUSDT / state.simulation.currentPrice;
         state.simulation.balance -= amountUSDT;
-        state.simulation.coinHoldings[state.simulation.selectedSimCoin] += coinAmount;
+        state.simulation.coinHoldings[state.simulation.selectedSimCoin] = (state.simulation.coinHoldings[state.simulation.selectedSimCoin] || 0) + coinAmount;
         
-        // Update initial buy price for PnL calculation. If already holding, average it.
-        // This is a simplified average cost calculation for demonstration
-        const currentHoldingBeforeBuy = (state.simulation.coinHoldings[state.simulation.selectedSimCoin] - coinAmount);
+        const currentHoldingBeforeBuy = state.simulation.coinHoldings[state.simulation.selectedSimCoin] - coinAmount;
         if (currentHoldingBeforeBuy > 0) {
             const totalCostBefore = state.simulation.initialBuyPrice * currentHoldingBeforeBuy;
             const newTotalCost = totalCostBefore + amountUSDT;
@@ -1915,8 +1817,20 @@ document.addEventListener('DOMContentLoaded', () => {
             state.simulation.initialBuyPrice = state.simulation.currentPrice;
         }
 
+        state.simulation.transactions.push({
+            time: new Date().toLocaleString(),
+            coin: state.simulation.selectedSimCoin,
+            action: 'Beli',
+            amount: coinAmount.toFixed(4),
+            price: state.simulation.currentPrice.toFixed(2),
+            total: amountUSDT.toFixed(2),
+            pnl_percent: '-',
+            pnl_usd: '-'
+        });
+
         document.getElementById('buy-amount').value = '';
         updateSimulationUI();
+        renderTransactionLog();
     }
 
     function sellCoin() {
@@ -1940,18 +1854,195 @@ document.addEventListener('DOMContentLoaded', () => {
         state.simulation.balance += usdtReceived;
         state.simulation.coinHoldings[state.simulation.selectedSimCoin] -= amountCoin;
         
-        // If all coins sold, reset initialBuyPrice
+        let pnlPercent = 0;
+        let pnlUsd = 0;
+
+        if (state.simulation.initialBuyPrice > 0) {
+            pnlUsd = (state.simulation.currentPrice - state.simulation.initialBuyPrice) * amountCoin;
+            pnlPercent = (pnlUsd / (state.simulation.initialBuyPrice * amountCoin)) * 100;
+        }
+
         if (state.simulation.coinHoldings[state.simulation.selectedSimCoin] < 0.0001) {
             state.simulation.coinHoldings[state.simulation.selectedSimCoin] = 0;
             state.simulation.initialBuyPrice = 0;
         }
 
+        state.simulation.transactions.push({
+            time: new Date().toLocaleString(),
+            coin: state.simulation.selectedSimCoin,
+            action: 'Jual',
+            amount: amountCoin.toFixed(4),
+            price: state.simulation.currentPrice.toFixed(2),
+            total: usdtReceived.toFixed(2),
+            pnl_percent: pnlPercent.toFixed(2) + '%',
+            pnl_usd: pnlUsd.toFixed(2)
+        });
+
         document.getElementById('sell-amount').value = '';
         updateSimulationUI();
+        renderTransactionLog();
+    }
+
+    function renderTransactionLog() {
+        const logBody = document.getElementById('transaction-log-body');
+        if (!logBody) return; // Add null check for logBody
+
+        logBody.innerHTML = '';
+
+        state.simulation.transactions.slice().reverse().forEach(tx => {
+            const row = logBody.insertRow();
+            row.className = 'bg-white border-b';
+            row.insertCell().textContent = tx.time;
+            row.insertCell().textContent = tx.coin;
+            row.insertCell().textContent = tx.action;
+            row.insertCell().textContent = tx.amount;
+            row.insertCell().textContent = `$${tx.price}`;
+            row.insertCell().textContent = `$${tx.total}`;
+            
+            const pnlPercentCell = row.insertCell();
+            pnlPercentCell.textContent = tx.pnl_percent;
+            if (tx.pnl_percent !== '-') {
+                pnlPercentCell.classList.add(parseFloat(tx.pnl_percent) >= 0 ? 'text-green-600' : 'text-red-600');
+            }
+
+            const pnlUsdCell = row.insertCell();
+            pnlUsdCell.textContent = `$${tx.pnl_usd}`;
+            if (tx.pnl_usd !== '-') {
+                pnlUsdCell.classList.add(parseFloat(tx.pnl_usd) >= 0 ? 'text-green-600' : 'text-red-600');
+            }
+        });
+    }
+
+    // --- NEW GEMINI API FEATURES FOR SIMULATION ---
+
+    async function analyzeLastTrade() {
+        const tradeAnalysisResultDiv = document.getElementById('trade-analysis-result');
+        const tradeAnalysisContentDiv = document.getElementById('trade-analysis-content');
+        const tradeAnalysisLoadingDiv = document.getElementById('trade-analysis-loading');
+
+        tradeAnalysisResultDiv.classList.add('hidden');
+        tradeAnalysisLoadingDiv.classList.remove('hidden');
+        tradeAnalysisContentDiv.innerHTML = '';
+
+        if (state.simulation.transactions.length === 0) {
+            tradeAnalysisResultDiv.classList.remove('hidden');
+            tradeAnalysisResultDiv.className = "mt-4 p-4 bg-yellow-50 rounded-lg text-yellow-800";
+            tradeAnalysisContentDiv.innerHTML = "Belum ada transaksi untuk dianalisis.";
+            tradeAnalysisLoadingDiv.classList.add('hidden');
+            return;
+        }
+
+        const lastTrade = state.simulation.transactions[state.simulation.transactions.length - 1];
+        const currentPrice = state.simulation.currentPrice;
+        const coinName = appData.coins[state.simulation.selectedSimCoin].name;
+
+        let prompt = `Sebagai analis trading kripto, berikan analisis singkat (1-2 paragraf) tentang transaksi terakhir ini:\n`;
+        prompt += `- Aksi: ${lastTrade.action}\n`;
+        prompt += `- Koin: ${coinName} (${lastTrade.coin})\n`;
+        prompt += `- Jumlah: ${lastTrade.amount} ${lastTrade.coin}\n`;
+        prompt += `- Harga Transaksi: $${lastTrade.price}\n`;
+        prompt += `- Harga Saat Ini: $${currentPrice.toFixed(2)}\n`;
+        if (lastTrade.pnl_usd !== '-') {
+            prompt += `- Keuntungan/Kerugian: $${lastTrade.pnl_usd} (${lastTrade.pnl_percent})\n`;
+        }
+        prompt += `Apakah ini perdagangan yang baik atau buruk berdasarkan harga saat ini? Berikan alasan sederhana.`;
+
+        const analysis = await callGeminiAPI(prompt);
+        tradeAnalysisContentDiv.innerHTML = analysis;
+        tradeAnalysisLoadingDiv.classList.add('hidden');
+        tradeAnalysisResultDiv.classList.remove('hidden');
+        tradeAnalysisResultDiv.className = "mt-4 p-4 bg-indigo-50 rounded-lg text-indigo-800";
+    }
+
+    async function suggestStrategy() {
+        const strategySuggestionResultDiv = document.getElementById('strategy-suggestion-result');
+        const strategySuggestionContentDiv = document.getElementById('strategy-suggestion-content');
+        const strategySuggestionLoadingDiv = document.getElementById('strategy-suggestion-loading');
+
+        strategySuggestionResultDiv.classList.add('hidden');
+        strategySuggestionLoadingDiv.classList.remove('hidden');
+        strategySuggestionContentDiv.innerHTML = '';
+
+        if (state.simulation.candleData.length < 10) {
+            strategySuggestionResultDiv.classList.remove('hidden');
+            strategySuggestionResultDiv.className = "mt-4 p-4 bg-yellow-50 rounded-lg text-yellow-800";
+            strategySuggestionContentDiv.innerHTML = "Dibutuhkan lebih banyak data grafik untuk menyarankan strategi. Biarkan simulasi berjalan sebentar.";
+            strategySuggestionLoadingDiv.classList.add('hidden');
+            return;
+        }
+
+        // Get recent price data to infer trend/volatility
+        const recentCloses = state.simulation.candleData.slice(-10).map(d => d.y[3]); // Last 10 close prices
+        const maxPrice = Math.max(...recentCloses);
+        const minPrice = Math.min(...recentCloses);
+        const priceRange = maxPrice - minPrice;
+        const averagePrice = recentCloses.reduce((a, b) => a + b, 0) / recentCloses.length;
+
+        let trend = "sideways";
+        if (recentCloses[recentCloses.length - 1] > recentCloses[0] * 1.02) { // 2% up
+            trend = "uptrend";
+        } else if (recentCloses[recentCloses.length - 1] < recentCloses[0] * 0.98) { // 2% down
+            trend = "downtrend";
+        }
+
+        let volatility = "rendah";
+        if (priceRange / averagePrice > 0.03) { // 3% range
+            volatility = "tinggi";
+        }
+
+        const prompt = `Berdasarkan kondisi pasar simulasi saat ini di mana harga ${state.simulation.selectedSimCoin} menunjukkan tren ${trend} dan volatilitas ${volatility}, berikan saran strategi trading umum (misalnya, strategi mengikuti tren, strategi range-bound, atau strategi breakout) yang cocok untuk pemula. Jelaskan alasannya secara singkat.`;
+
+        const suggestion = await callGeminiAPI(prompt);
+        strategySuggestionContentDiv.innerHTML = suggestion;
+        strategySuggestionLoadingDiv.classList.add('hidden');
+        strategySuggestionResultDiv.classList.remove('hidden');
+        strategySuggestionResultDiv.className = "mt-4 p-4 bg-green-50 rounded-lg text-green-800";
+    }
+
+    async function evaluatePortfolio() {
+        const portfolioEvaluationResultDiv = document.getElementById('portfolio-evaluation-result');
+        const portfolioEvaluationContentDiv = document.getElementById('portfolio-evaluation-content');
+        const portfolioEvaluationLoadingDiv = document.getElementById('portfolio-evaluation-loading');
+
+        portfolioEvaluationResultDiv.classList.add('hidden');
+        portfolioEvaluationLoadingDiv.classList.remove('hidden');
+        portfolioEvaluationContentDiv.innerHTML = '';
+
+        const currentCoinHolding = state.simulation.coinHoldings[state.simulation.selectedSimCoin] || 0;
+        const totalValue = state.simulation.balance + currentCoinHolding * state.simulation.currentPrice;
+        const initialBalance = 10000; // Assuming initial balance is always 10000
+
+        let performanceStatus = "netral";
+        let pnlOverall = totalValue - initialBalance;
+        if (pnlOverall > 0) {
+            performanceStatus = "menguntungkan";
+        } else if (pnlOverall < 0) {
+            performanceStatus = "merugi";
+        }
+
+        let holdingInfo = "";
+        if (currentCoinHolding > 0) {
+            holdingInfo = `Anda saat ini memegang ${currentCoinHolding.toFixed(4)} ${state.simulation.selectedSimCoin} dengan harga beli rata-rata $${state.simulation.initialBuyPrice.toFixed(2)}. Harga saat ini adalah $${state.simulation.currentPrice.toFixed(2)}.`;
+        } else {
+            holdingInfo = "Anda tidak memegang koin apapun saat ini.";
+        }
+
+        const prompt = `Sebagai penasihat trading AI, berikan evaluasi singkat (1-2 paragraf) tentang portofolio simulasi ini:\n`;
+        prompt += `- Saldo USDT: $${state.simulation.balance.toFixed(2)}\n`;
+        prompt += `- Total Nilai Portofolio: $${totalValue.toFixed(2)}\n`;
+        prompt += `- Kinerja Keseluruhan: ${performanceStatus} (P/L: $${pnlOverall.toFixed(2)})\n`;
+        prompt += `- Informasi Kepemilikan: ${holdingInfo}\n\n`;
+        prompt += `Berikan saran singkat untuk meningkatkan kinerja atau mengelola risiko.`;
+
+        const evaluation = await callGeminiAPI(prompt);
+        portfolioEvaluationContentDiv.innerHTML = evaluation;
+        portfolioEvaluationLoadingDiv.classList.add('hidden');
+        portfolioEvaluationResultDiv.classList.remove('hidden');
+        portfolioEvaluationResultDiv.className = "mt-4 p-4 bg-purple-50 rounded-lg text-purple-800";
     }
 
     init();
-});
+};
 </script>
 </body>
 </html>
